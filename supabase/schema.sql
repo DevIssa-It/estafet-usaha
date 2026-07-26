@@ -122,25 +122,25 @@ drop policy if exists "Members can view vault documents" on public.vault_documen
 drop policy if exists "Members can insert vault documents" on public.vault_documents;
 
 -- Create policies
-create policy "Users can view own profile" on public.profiles for select using (auth.uid() = id);
+create policy "Users can view profiles" on public.profiles for select using (auth.role() = 'authenticated');
 create policy "Users can update own profile" on public.profiles for update using (auth.uid() = id);
 create policy "Users can insert own profile" on public.profiles for insert with check (auth.uid() = id);
 
-create policy "Users can view their business" on public.businesses for select using (owner_id = auth.uid() or id in (select business_id from public.profiles where id = auth.uid()));
+create policy "Users can view businesses" on public.businesses for select using (auth.role() = 'authenticated');
 create policy "Pendiri can create business" on public.businesses for insert with check (owner_id = auth.uid());
 create policy "Pendiri can update their business" on public.businesses for update using (owner_id = auth.uid());
 
-create policy "Members can view their business members" on public.business_members for select using (business_id in (select id from public.businesses where owner_id = auth.uid()) or business_id in (select business_id from public.profiles where id = auth.uid()));
+create policy "Members can view business members" on public.business_members for select using (auth.role() = 'authenticated');
 create policy "Users can join business" on public.business_members for insert with check (user_id = auth.uid());
 
-create policy "Members can view milestones" on public.milestones for select using (business_id in (select id from public.businesses where owner_id = auth.uid()) or business_id in (select business_id from public.profiles where id = auth.uid()));
-create policy "Members can update milestones" on public.milestones for update using (business_id in (select id from public.businesses where owner_id = auth.uid()) or business_id in (select business_id from public.profiles where id = auth.uid()));
-create policy "System can insert milestones" on public.milestones for insert with check (business_id in (select id from public.businesses where owner_id = auth.uid()) or business_id in (select business_id from public.profiles where id = auth.uid()));
+create policy "Members can view milestones" on public.milestones for select using (auth.role() = 'authenticated');
+create policy "Members can update milestones" on public.milestones for update using (auth.role() = 'authenticated');
+create policy "System can insert milestones" on public.milestones for insert with check (auth.role() = 'authenticated');
 
-create policy "Members can view chat messages" on public.chat_messages for select using (business_id in (select id from public.businesses where owner_id = auth.uid()) or business_id in (select business_id from public.profiles where id = auth.uid()));
+create policy "Members can view chat messages" on public.chat_messages for select using (auth.role() = 'authenticated');
 create policy "Members can insert chat messages" on public.chat_messages for insert with check (user_id = auth.uid());
 
-create policy "Members can view vault documents" on public.vault_documents for select using (business_id in (select id from public.businesses where owner_id = auth.uid()) or business_id in (select business_id from public.profiles where id = auth.uid()));
+create policy "Members can view vault documents" on public.vault_documents for select using (auth.role() = 'authenticated');
 create policy "Members can insert vault documents" on public.vault_documents for insert with check (uploaded_by = auth.uid());
 
 -- ──────────────────────────────────────────────────────────────
