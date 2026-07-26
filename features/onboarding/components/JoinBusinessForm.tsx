@@ -24,9 +24,9 @@ export function JoinBusinessForm({
           onChange={e => onCodeChange(e.target.value.toUpperCase())} required
           style={{ textTransform: "uppercase", letterSpacing: 2, fontWeight: 700 }} />
         <p style={{ fontSize: 12, color: "var(--color-stone)", marginTop: 6 }}>
-          {userRole === "penerus" && "Dapatkan kode undangan dari Pendiri bisnis keluarga Anda."}
-          {userRole === "notaris" && "Masukkan kode yang diberikan langsung oleh Pendiri bisnis Klien Anda."}
-          {userRole !== "penerus" && userRole !== "notaris" && "Dapatkan kode dari pemilik bisnis."}
+          {userRole === "penerus" && "Masukkan Kode Undangan yang diberikan oleh Pendiri bisnis keluarga Anda."}
+          {userRole === "notaris" && "Masukkan Kode Undangan yang diberikan oleh Pemilik/Owner bisnis Klien Anda."}
+          {userRole !== "penerus" && userRole !== "notaris" && "Masukkan Kode Undangan dari Pemilik/Owner bisnis."}
         </p>
       </div>
 

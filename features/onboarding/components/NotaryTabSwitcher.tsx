@@ -43,7 +43,7 @@ export function NotaryTabSwitcher({ activeTab, onTabChange }: NotaryTabSwitcherP
         }}
       >
         <UsersThree size={16} weight={activeTab === "join" ? "fill" : "regular"} />
-        Gabung Kode Klien
+        Masukkan Kode dari Owner
       </button>
     </div>
   );
