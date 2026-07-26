@@ -87,7 +87,8 @@ Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis
 
 ### 3.9 Notary Multi-Client Management & Dynamic Portal Architecture (`/notaries` & Header)
 - **Modul Pengaturan & Verifikasi Profil Mandiri Notaris**: Halaman khusus bagi Notaris untuk mengelola status verifikasi SK AHU Kemenkumham, nomor INI, kota, alamat kantor, dan keahlian akta suksesi.
-- **Client Business Switcher (Portal Multi-Klien)**: Dropdown pemilih bisnis Klien di Header atas yang memungkinkan satu Notaris mengelola dan memantau legalitas banyak perusahaan Klien sekaligus dalam 1 akun.
+- **Client Business Switcher (Portal Multi-Klien)**: Dropdown pemilih bisnis Klien di Header atas & Dashboard yang memungkinkan satu Notaris mengelola dan memantau legalitas banyak perusahaan Klien sekaligus dalam 1 akun.
+- **Daftar Undangan Klien Masuk & Modal Tinjauan Hukum 5 Pilar PMPJ**: Modul peninjauan calon Klien usaha baru lengkap dengan Lembar Evaluasi Hukum 5 Pilar (PMPJ & Beneficial Owner, Wilayah Jabatan, Objek Bebas Sengketa, Persetujuan Sah Keluarga, & Rencana Akta Suksesi) sebelum Notaris memutuskan menerima/menolak Klien.
 - **Notary Status Banner**: Banner khusus di Dashboard yang mengonfirmasi keterhubungan Notaris Partner sebagai pengawas hukum resmi bisnis Klien aktif.
 
 ### 3.10 Learning Hub (`/learn`)
