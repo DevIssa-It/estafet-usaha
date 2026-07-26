@@ -82,10 +82,40 @@ export function DashboardView({
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Link href="/milestones" className="btn btn-cobalt" style={{ padding: "10px 20px", fontSize: 14, gap: 8, fontWeight: 600 }}>
-            Kelola Milestone <ArrowRight size={16} weight="bold" />
-          </Link>
+        {/* Role-Based Quick Action Buttons */}
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+          {profile.role === "pendiri" && (
+            <>
+              <Link href="/simulator" className="btn btn-outline" style={{ padding: "10px 16px", fontSize: 13, fontWeight: 600, border: "1px solid #cbd5e1", color: "#334155", backgroundColor: "#ffffff" }}>
+                Simulasi Finansial
+              </Link>
+              <Link href="/milestones" className="btn btn-cobalt" style={{ padding: "10px 18px", fontSize: 13, gap: 6, fontWeight: 600 }}>
+                Kelola Milestone <ArrowRight size={16} weight="bold" />
+              </Link>
+            </>
+          )}
+
+          {profile.role === "penerus" && (
+            <>
+              <Link href="/learn" className="btn btn-outline" style={{ padding: "10px 16px", fontSize: 13, fontWeight: 600, border: "1px solid #cbd5e1", color: "#334155", backgroundColor: "#ffffff" }}>
+                Edukasi Suksesi
+              </Link>
+              <Link href="/milestones" className="btn btn-cobalt" style={{ padding: "10px 18px", fontSize: 13, gap: 6, fontWeight: 600 }}>
+                Lihat Milestone Operasional <ArrowRight size={16} weight="bold" />
+              </Link>
+            </>
+          )}
+
+          {profile.role === "notaris" && (
+            <>
+              <Link href="/notaries" className="btn btn-outline" style={{ padding: "10px 16px", fontSize: 13, fontWeight: 600, border: "1px solid #cbd5e1", color: "#334155", backgroundColor: "#ffffff" }}>
+                Profil Notaris Saya
+              </Link>
+              <Link href="/vault" className="btn btn-cobalt" style={{ padding: "10px 18px", fontSize: 13, gap: 6, fontWeight: 600 }}>
+                Periksa Vault Dokumen <ArrowRight size={16} weight="bold" />
+              </Link>
+            </>
+          )}
         </div>
       </div>
 
@@ -121,7 +151,7 @@ export function DashboardView({
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           {/* Invite Code / Notary Status Banner */}
           {profile?.role === "notaris" ? (
-            <NotaryStatusBanner businessName={business?.name} />
+            <NotaryStatusBanner businessName={business?.name} businessId={business?.id} />
           ) : (
             <InviteBanner inviteCode={business?.invite_code || "ESTAFET"} role={profile?.role} />
           )}
