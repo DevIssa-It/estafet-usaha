@@ -78,7 +78,19 @@ Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis
   - **Notaris Partner**: 2 pilihan onboarding (Daftarkan Profil Katalog Publik atau Gabung Klien via Kode Undangan).
 - **Personalized Navigation**: Navigasi dan fitur dashboard disesuaikan secara dinamis berdasarkan wewenang peran (`pendiri`, `penerus`, `notaris`).
 
-### 3.8 Learning Hub (`/learn`)
+### 3.8 Role-Based Access Control (RBAC) & Dynamic Permissions
+- **Penetapan Wewenang Lintas Fitur**:
+  - **Pendiri (Owner)**: Wewenang Penuh (*Full Admin*) atas seluruh Milestone (Legal, Financial, Operational, Relational), Pengeditan Piagam Keluarga, serta Manajemen Tim.
+  - **Penerus (Successor)**: Wewenang Operasional & Relasional untuk mengupdate status Milestone Operasional, mengunggah SOP, dan menyetujui Piagam Keluarga.
+  - **Notaris Partner**: Wewenang Verifikasi Legalitas Khusus untuk memvalidasi Milestone Hukum & memeriksa dokumen di Bilik Dokumen (Vault).
+- **Visual Access Permission Badge**: Lencana penjelasan wewenang real-time di halaman Milestone & Vault.
+
+### 3.9 Notary Multi-Client Management & Dynamic Portal Architecture (`/notaries` & Header)
+- **Modul Pengaturan & Verifikasi Profil Mandiri Notaris**: Halaman khusus bagi Notaris untuk mengelola status verifikasi SK AHU Kemenkumham, nomor INI, kota, alamat kantor, dan keahlian akta suksesi.
+- **Client Business Switcher (Portal Multi-Klien)**: Dropdown pemilih bisnis Klien di Header atas yang memungkinkan satu Notaris mengelola dan memantau legalitas banyak perusahaan Klien sekaligus dalam 1 akun.
+- **Notary Status Banner**: Banner khusus di Dashboard yang mengonfirmasi keterhubungan Notaris Partner sebagai pengawas hukum resmi bisnis Klien aktif.
+
+### 3.10 Learning Hub (`/learn`)
 - **Modul Edukasi Suksesi**: Materi pembelajaran interaktif tentang pendelegasian operasional, komunikasi keluarga, dan kepatuhan hukum.
 
 ---

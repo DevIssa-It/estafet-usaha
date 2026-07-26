@@ -92,7 +92,15 @@ Namun, riset menunjukkan ancaman laten dalam transisi kepemimpinan:
 ### 5. 🔒 Bilik Dokumen / Document Vault (`/vault`)
 - **Vault Terenkripsi**: Tempat penyimpanan terpusat untuk Akta Pendirian, SIUP, NPWP, NIB, dan Sertifikat Merek dengan pengamanan **Row Level Security (RLS)** Supabase.
 
-### 6. 🎓 Learning Hub (`/learn`)
+### 6. ⚖️ Katalog Notaris & Portal Notaris Partner Mandiri (`/notaries`)
+- **Direktori Notaris Partner Terverifikasi**: Pencarian Notaris berlisensi resmi SK AHU Kemenkumham & NIK INI untuk diundang oleh Pendiri bisnis.
+- **Pengaturan & Verifikasi Profil Mandiri**: Portal bagi Notaris Partner untuk mengelola nomor SK AHU, INI, kota, dan spesialisasi akta legalitas.
+- **Client Business Switcher (Portal Multi-Klien)**: Dropdown di Header yang memungkinkan 1 Notaris mengelola banyak perusahaan Klien sekaligus dalam 1 akun.
+
+### 7. 🛡️ Role-Based Access Control (RBAC) & Visual Wewenang
+- **Matriks Akses Dinamis**: Pembagian hak akses otomatis antara Pendiri (*Full Admin*), Penerus (*Operational & Relational*), dan Notaris Partner (*Legal Inspector*).
+
+### 8. 🎓 Learning Hub (`/learn`)
 - **Modul Edukasi Suksesi**: Materi pembelajaran interaktif tentang pendelegasian operasional dan kepatuhan hukum.
 
 ---
@@ -132,16 +140,22 @@ estafet-usaha/
 │   │   ├── simulator/           # Simulasi Finansial
 │   │   ├── documents/           # Generator Family Charter
 │   │   ├── vault/               # Bilik Dokumen (Document Vault)
+│   │   ├── notaries/            # Katalog Notaris & Profil Notaris Mandiri
 │   │   └── learn/               # Edukasi Suksesi
 │   ├── api/
 │   │   └── advisor/chat/        # Server-side Gemini AI Chat Route
 │   ├── auth/                    # Authentication (Login/Register)
 │   ├── globals.css              # Revolut Design System Tokens & Classes
 │   └── page.tsx                 # High-converting Landing Page
+├── components/                  # Shared Micro-Components
+│   └── shared/
+│       ├── ClientBusinessSwitcher.tsx
+│       └── switcher/            # SwitcherTriggerButton, SwitcherDropdownList
 ├── features/                    # Modular Micro-Components by Feature Area
 │   ├── advisor/components/      # AdvisorView, ChatBubble, ChatInput, etc.
-│   ├── dashboard/components/    # DashboardView, ReadinessScoreCard, etc.
+│   ├── dashboard/components/    # DashboardView, NotaryStatusBanner, etc.
 │   ├── documents/components/    # DocumentGeneratorView, FamilyCharterPreview
+│   ├── notaries/components/     # NotariesView, NotarySelfProfileView, self/
 │   ├── simulator/components/    # FinancialSimulatorView
 │   ├── vault/components/        # DocumentVaultView
 │   └── learn/components/        # LearningHubView
