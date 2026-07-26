@@ -1,33 +1,69 @@
+"use client";
+
+import { UserPlus, Compass, ChatCircleText, TrendUp } from "@phosphor-icons/react";
+
 const steps = [
-  { num: "01", title: "Daftar & Buat Profil Bisnis", desc: "Pendiri mendaftarkan bisnis keluarga dan mengundang Penerus untuk bergabung." },
-  { num: "02", title: "Susun Rencana Suksesi", desc: "Sistem secara otomatis membuat 12 milestone suksesi berdasarkan 4 dimensi: Legal, Finansial, Operasional, Relasional." },
-  { num: "03", title: "Pantau & Selesaikan Milestone", desc: "Tandai progres setiap tahapan. Keduanya bisa memantau perkembangan secara real-time." },
-  { num: "04", title: "Konsultasi AI Kapan Saja", desc: "Tanya AI Advisor untuk panduan spesifik sesuai kondisi bisnis dan peran Anda." },
+  {
+    icon: UserPlus,
+    step: "01",
+    title: "Daftar & Pilih Peran",
+    desc: "Buat akun sebagai Pendiri atau Penerus, lalu daftarkan profil bisnis keluarga Anda.",
+  },
+  {
+    icon: Compass,
+    step: "02",
+    title: "Ikuti 12 Milestone",
+    desc: "Selesaikan tahapan suksesi terstruktur dari dimensi Legal, Finansial, Operasional hingga Relational.",
+  },
+  {
+    icon: ChatCircleText,
+    step: "03",
+    title: "Konsultasi dengan AI",
+    desc: "Manfaatkan AI Suksesi Advisor untuk mendapatkan rekomendasi dan solusi atas hambatan suksesi.",
+  },
+  {
+    icon: TrendUp,
+    step: "04",
+    title: "Pantau Kesiapan Suksesi",
+    desc: "Lihat indikator kesiapan suksesi bisnis meningkat hingga siap dilakukan pengalihan kepemimpinan.",
+  },
 ];
 
 export function HowItWorksSection() {
   return (
-    <section id="cara-kerja" style={{ padding: "100px 0", backgroundColor: "var(--color-surface-card)" }}>
+    <section id="cara-kerja" style={{ padding: "88px 0", backgroundColor: "var(--color-surface-soft)" }}>
       <div className="container-content">
-        <div style={{ textAlign: "center", marginBottom: 60 }}>
-          <h2 className="heading-lg" style={{ color: "var(--color-on-dark)", marginBottom: 12 }}>
+        <div className="text-center" style={{ marginBottom: 56 }}>
+          <span style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.2, color: "var(--color-primary-bright)" }}>
+            CARA KERJA
+          </span>
+          <h2 className="heading-xl" style={{ marginTop: 8, color: "var(--color-on-dark)" }}>
             4 Langkah Mudah Memulai Suksesi
           </h2>
-          <p className="body-md" style={{ color: "var(--color-stone)" }}>
-            Proses terstruktur yang memandu Anda dari awal hingga penyerahan tongkat estafet.
-          </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
-          {steps.map((s, i) => (
-            <div key={i} className="card-dark" style={{ position: "relative" }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: 36, fontWeight: 800, color: "var(--color-primary-bright)", opacity: 0.4, marginBottom: 12 }}>
-                {s.num}
+        <div className="grid-responsive grid-4">
+          {steps.map((s, index) => {
+            const Icon = s.icon;
+            return (
+              <div key={index} style={{
+                backgroundColor: "var(--color-surface-elevated)",
+                padding: 24, borderRadius: "var(--rounded-lg)",
+                border: "1px solid var(--color-hairline-dark)",
+                position: "relative", display: "flex", flexDirection: "column", gap: 12
+              }}>
+                <span style={{
+                  fontSize: 28, fontWeight: 800, color: "var(--color-primary-bright)", opacity: 0.6,
+                  fontFamily: "var(--font-display)"
+                }}>
+                  {s.step}
+                </span>
+                <Icon size={32} color="var(--color-primary-bright)" weight="duotone" />
+                <h3 style={{ fontSize: 16, fontWeight: 600, color: "var(--color-on-dark)" }}>{s.title}</h3>
+                <p className="body-sm text-mute" style={{ color: "var(--color-stone)" }}>{s.desc}</p>
               </div>
-              <h3 className="heading-sm" style={{ color: "var(--color-on-dark)", marginBottom: 8 }}>{s.title}</h3>
-              <p className="body-sm" style={{ color: "var(--color-stone)", lineHeight: 1.6 }}>{s.desc}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,3 +1,5 @@
+"use client";
+
 import { Navbar } from "@/features/landing/components/Navbar";
 import { HeroSection } from "@/features/landing/components/HeroSection";
 import { StatsSection } from "@/features/landing/components/StatsSection";

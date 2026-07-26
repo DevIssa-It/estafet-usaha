@@ -1,19 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react";
 
 export function CtaSection() {
   return (
-    <section style={{ padding: "80px 0 100px", backgroundColor: "var(--color-surface-card)", borderTop: "1px solid var(--color-hairline-dark)" }}>
-      <div className="container-content text-center">
-        <h2 className="heading-lg" style={{ color: "var(--color-on-dark)", marginBottom: 16 }}>
-          Siap Merencanakan Suksesi Bisnis Keluarga Anda?
-        </h2>
-        <p className="body-md" style={{ color: "var(--color-stone)", maxWidth: 520, margin: "0 auto 32px" }}>
-          Mulai langkah pertama hari ini secara gratis. Buat akun, undang penerus, dan dapatkan panduan AI Advisor.
-        </p>
-        <Link href="/auth?mode=register" className="btn btn-cobalt" style={{ padding: "14px 32px", fontSize: 16, gap: 8 }}>
-          Mulai Sekarang — Gratis <ArrowRight size={18} />
-        </Link>
+    <section style={{ padding: "88px 0", backgroundColor: "var(--color-surface-soft)" }}>
+      <div className="container-content">
+        <div className="card-featured text-center" style={{ padding: "64px 32px", position: "relative", overflow: "hidden" }}>
+          <h2 className="heading-xl" style={{ color: "white", marginBottom: 16 }}>
+            Siapkan Masa Depan Bisnis Keluarga Anda Hari Ini
+          </h2>
+          <p className="body-lg" style={{ color: "rgba(255,255,255,0.85)", maxWidth: 540, margin: "0 auto 32px" }}>
+            Jangan biarkan kerja keras puluhan tahun pudar karena transisi yang tidak terencana. Mulai petakan suksesi bisnis secara gratis.
+          </p>
+          <Link href="/auth?mode=register" className="btn btn-primary" style={{ padding: "14px 32px", fontSize: 16, gap: 8 }}>
+            Daftar Sekarang <ArrowRight size={18} />
+          </Link>
+        </div>
       </div>
     </section>
   );
