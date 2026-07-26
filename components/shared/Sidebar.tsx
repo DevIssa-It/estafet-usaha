@@ -11,6 +11,7 @@ import {
   FileText,
   FolderSimple,
   GraduationCap,
+  Scales,
   SignOut,
 } from "@phosphor-icons/react";
 import { createClient } from "@/lib/supabase/client";
@@ -27,6 +28,7 @@ const navItems = [
   { href: "/milestones", label: "Milestone Suksesi", icon: CheckSquare },
   { href: "/documents", label: "Dokumen Suksesi", icon: FileText },
   { href: "/vault", label: "Bilik Dokumen (Vault)", icon: FolderSimple },
+  { href: "/notaries", label: "Katalog Notaris", icon: Scales, badge: "Verified" },
   { href: "/learn", label: "Edukasi Suksesi", icon: GraduationCap },
   { href: "/advisor", label: "AI Advisor", icon: Brain, badge: "AI" },
 ];
