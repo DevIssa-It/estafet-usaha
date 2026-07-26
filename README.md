@@ -21,7 +21,7 @@
 ## 🎯 RELEVANSI PROYEK DENGAN TEMA LITERASI FINANSIAL
 
 ### 💡 Mengapa Suksesi Bisnis Keluarga Sangat Erat dengan Literasi Finansial?
-Berdasarkan riset **PwC Global Family Business Survey 2025** dan **Daya Qarsa (2022)**, salah satu penyebab terbesar kebangkrutan 70% bisnis keluarga di generasi kedua adalah **rendahnya literasi finansial dalam mengelola keuangan bisnis vs keuangan keluarga**. Kebanyakan pengusaha UMKM tidak tahu cara menghitung valuasi bisnis secara objektif, buta terhadap implikasi pajak pengalihan aset (PPh pengalihan saham 2,5% & BPHTB 5%), serta tidak memiliki perencanaan alokasi modal ditahan (*retained earnings*).
+Berdasarkan riset **PwC Global Family Business Survey 2025** dan **Daya Qarsa (2022)**, salah satu penyebab terbesar kebangkrutan 70% bisnis keluarga di generasi kedua adalah **rendahnya literasi finansial dalam mengelola keuangan bisnis vs keuangan keluarga**. Kebanyakan pengusaha UMKM tidak tahu cara menghitung valuasi bisnis secara objektif, buta terhadap implikasi pajak pengalihan aset (PPh Final Properti 2.5%, BPHTB 5%, serta PPh Capital Gain Pasal 17 / Fasilitas Pembebasan Hibah Sedarah PMK 90/2020), serta tidak memiliki perencanaan alokasi modal ditahan (*retained earnings*).
 
 ### 🔗 Peta Relevansi Fitur Estafet Usaha dengan Tema Literasi Finansial:
 
