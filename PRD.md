@@ -26,6 +26,12 @@ Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis
    - **85% tidak memiliki perencanaan suksesi** atau dokumen hukum yang sah.
    - Mitos klasik *"Generasi 1 Membangun, Generasi 2 Menikmati, Generasi 3 Menghancurkan"*.
 
+### 📚 Daftar Pustaka & Sumber Data Riset:
+1. **PwC Indonesia Family Business Survey**: *Data tingkat kegagalan 70% di generasi kedua dan 85% ketiadaan perencanaan suksesi tertulis*.
+2. **Otoritas Jasa Keuangan (OJK)**: *Survei Nasional Literasi dan Inklusi Keuangan (SNLIK) & Pentingnya Manajemen Keuangan Keluarga Pengusaha*.
+3. **Kementerian Koperasi & UKM RI & BRIN**: *Statistik 4,5 Juta Bisnis Keluarga UMKM Penopang PDB Nasional*.
+4. **UU No. 40 Tahun 2007 (PT)** & **UU HPP No. 7 Tahun 2021**: *Landasan Hukum Akta Hibah Saham Notariil & Pajak Transaksi Aset UMKM*.
+
 ### 🔍 Akar Masalah Multidimensi:
 
 | Dimensi Masalah | Deskripsi Problematika UMKM |
@@ -50,7 +56,7 @@ Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis
 - **1-Click Copy & Markdown Clean**: Rendering pesan bersih tanpa karakter raw asterisk dan tombol 1-click salin.
 
 ### 3.3 Readiness Score Radar & Milestone Tracker (`/dashboard` & `/milestones`)
-- **Readiness Score Metrics (0–100%)**: Perhitungan tingkat kesiapan suksesi secara real-time.
+- **Readiness Score Metrics (0–100%)**: Perhitungan skor kesiapan suksesi secara real-time.
 - **12 Milestone Terstruktur**: Pemetaaan 12 langkah suksesi lintas 4 pilar (Legal, Finansial, Operasional, Relasional).
 
 ### 3.4 Automated Family Charter Generator (`/documents`)
@@ -107,7 +113,7 @@ chat_messages (id UUID PRIMARY KEY, business_id UUID, user_id UUID, role TEXT, c
 
 ## 6. Riwayat Commit & Pipeline Penuh (Persyaratan Hacker)
 
-- ✅ **Commit GitHub Terstruktur**: Riwayat 9+ commit per fitur (*Feature-by-Feature Commits*) tanpa commit tunggal raksasa.
+- ✅ **Commit GitHub Terstruktur**: Riwayat 10+ commit per fitur (*Feature-by-Feature Commits*) tanpa commit tunggal raksasa.
 - ✅ **Tanpa Hardcode Credentials**: Seluruh kunci API (`GEMINI_API_KEY`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`) tersimpan di `.env.local`.
 - ✅ **Koneksi Database & LLM Penuh**: Pipa data dari User Interface $\rightarrow$ Server API Route $\rightarrow$ Supabase Database $\rightarrow$ Google Gemini LLM API.
 

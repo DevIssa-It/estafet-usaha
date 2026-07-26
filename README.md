@@ -18,7 +18,25 @@
 
 ---
 
-## 📌 Latar Belakang & Masalah (Problem Statement — 20% Bobot Penilaian)
+## 🎯 RELEVANSI PROYEK DENGAN TEMA LITERASI FINANSIAL
+
+### 💡 Mengapa Suksesi Bisnis Keluarga Sangat Erat dengan Literasi Finansial?
+Berdasarkan data OJK dan BRIN, salah satu penyebab terbesar kebangkrutan 70% UMKM keluarga di generasi kedua adalah **rendahnya literasi finansial dalam mengelola keuangan bisnis vs keuangan keluarga**. Kebanyakan pengusaha UMKM tidak tahu cara menghitung valuasi bisnis secara objektif, buta terhadap implikasi pajak pengalihan aset, serta tidak memiliki perencanaan alokasi modal ditahan (*retained earnings*).
+
+### 🔗 Peta Relevansi Fitur Estafet Usaha dengan Tema Literasi Finansial:
+
+| Modul Fitur | Penerapan Literasi Finansial | Output & Dampak Bagi Pengusaha UMKM |
+|---|---|---|
+| 🧮 **Financial Simulator & Valuasi** | Edukasi metode valuasi bisnis berbasis *EBITDA Multiplier* industri. | Pengusaha memahami estimasi harga pasar wajar bisnisnya secara transparan. |
+| 💸 **Kalkulator Pajak Transisi** | Edukasi mengenai Pajak Pengalihan Saham & Akta Hibah Notaris. | Mencegah sengketa pajak tak terduga saat pengalihan aset keluarga. |
+| 📈 **Skema Alokasi Dividen** | Edukasi manajemen kas: Laba Ditahan (*Capital Expansion*) vs Dividen. | Menjaga kesehatan arus kas (*cashflow*) perusahaan saat berganti kepemimpinan. |
+| 🤖 **AI Suksesi Advisor (Gemini)** | Konsultasi 24/7 seputar literasi keuangan & strategi restrukturisasi. | Akses ke nasihat finansial & legal kelas dunia secara gratis dan instan. |
+| 📜 **Family Charter Generator** | Edukasi penyusunan transparansi remunerasi & gaji penerus. | Mencegah konflik perebutan dividen antar anggota keluarga. |
+| 🎓 **Learning Hub (Edukasi)** | Modul literasi finansial terstruktur untuk Pendiri & Penerus. | Meningkatkan tingkat literasi keuangan generasi penerus UMKM. |
+
+---
+
+## 📌 Latar Belakang & Rumusan Masalah (20% Bobot Penilaian)
 
 Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UMKM) berbasis keluarga** (sekitar 4,5 juta unit usaha). Namun, data menunjukkan realitas yang memprihatinkan:
 - ❌ **70% bisnis keluarga gagal bertahan** di Generasi Kedua.
@@ -30,6 +48,15 @@ Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UM
 2. **Ketiadaan Perencanaan Legal**: Transisi kepemilikan saham dan aset seringkali hanya lisan tanpa Akta Hibah Notaris.
 3. **Hambatan Komunikasi Intergenerasi**: Adanya rasa canggung emosional antara Pendiri dan Penerus.
 4. **Ketiadaan Dokumentasi SOP**: Pengetahuan operasional bisnis hanya tersimpan di kepala Pendiri.
+
+---
+
+## 📚 DAFTAR PUSTAKA & SUMBER DATA RISET (References)
+
+1. **PwC Indonesia Family Business Survey**: *Riset Kelangsungan Bisnis Keluarga Indonesia (70% kegagalan di Generasi Ke-2 & 85% ketiadaan suksesi tertulis)*.
+2. **Otoritas Jasa Keuangan (OJK)**: *Survei Nasional Literasi dan Inklusi Keuangan (SNLIK) & Panduan Manajemen Keuangan Keluarga Pengusaha*.
+3. **Kementerian Koperasi dan UKM RI & BRIN**: *Data Statistik UMKM Berbasis Keluarga & Kontribusi terhadap PDB Nasional*.
+4. **UU No. 40 Tahun 2007 (Perseroan Terbatas)** & **UU HPP No. 7 Tahun 2021**: *Aturan Hukum Tata Kelola Saham, Akta Hibah Notaris, & Pajak Transaksi Suksesi Aset Bisnis*.
 
 ---
 
@@ -70,7 +97,7 @@ Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UM
 | Kriteria Penilaian | Bobot | Implementasi Teknis & Strategis |
 |---|---|---|
 | **Penguasaan Kompetensi Role (Hacker)** | **30%** | Full-stack MVP (Next.js 16 + Supabase Auth & RLS + Google Gemini AI LLM), Pipeline API utuh, Micro-component Architecture, & Git commit history per fitur. |
-| **Pemahaman Masalah** | **20%** | Solusi tepat sasaran mengatasi krisis 70% kegagalan suksesi 4,5 juta bisnis keluarga UMKM Indonesia di pilar finansial & legal. |
+| **Pemahaman Masalah** | **20%** | Solusi tepat sasaran mengatasi krisis 70% kegagalan suksesi 4,5 juta bisnis keluarga UMKM Indonesia pada pilar **Literasi Finansial** & **Legalitas**. |
 | **Kualitas & Kegunaan Output** | **20%** | 6 Modul fitur lengkap, UI/UX Revolut Light Design System, responsif, 100% tanpa error, dan tombol utility 1-click. |
 | **Orisinalitas Pendekatan** | **15%** | Platform terintegrasi 4 pilar suksesi pertama di Indonesia dengan AI Advisor personal dan kalkulator valuasi transisi suksesi. |
 | **Kejelasan Penyampaian** | **15%** | Dokumentasi lengkap di [`PRD.md`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/PRD.md), [`README.md`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/README.md), dan skrip SQL seeder terstruktur. |
