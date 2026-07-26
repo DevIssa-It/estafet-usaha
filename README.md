@@ -92,13 +92,17 @@ Namun, riset menunjukkan ancaman laten dalam transisi kepemimpinan:
 ### 5. 🔒 Bilik Dokumen / Document Vault (`/vault`)
 - **Vault Terenkripsi**: Tempat penyimpanan terpusat untuk Akta Pendirian, SIUP, NPWP, NIB, dan Sertifikat Merek dengan pengamanan **Row Level Security (RLS)** Supabase.
 
-### 6. ⚖️ Katalog Notaris & Portal Notaris Partner Mandiri (`/notaries`)
+### 6. ⚖️ Katalog Notaris, Portal Mandiri & Management Multi-Klien (`/notaries` & Header)
 - **Direktori Notaris Partner Terverifikasi**: Pencarian Notaris berlisensi resmi SK AHU Kemenkumham & NIK INI untuk diundang oleh Pendiri bisnis.
 - **Pengaturan & Verifikasi Profil Mandiri**: Portal bagi Notaris Partner untuk mengelola nomor SK AHU, INI, kota, dan spesialisasi akta legalitas.
-- **Client Business Switcher (Portal Multi-Klien)**: Dropdown di Header yang memungkinkan 1 Notaris mengelola banyak perusahaan Klien sekaligus dalam 1 akun.
+- **Undangan Klien Masuk & Tinjauan Hukum 5 Pilar PMPJ**: Modul peninjauan calon Klien usaha baru dengan Lembar Evaluasi 5 Pilar (PMPJ & Beneficial Owner, Wilayah Jabatan, Objek Bebas Sengketa, Persetujuan Sah Keluarga, & Rencana Akta Suksesi).
+- **Client Business Switcher (Portal Multi-Klien)**: Dropdown di Header & Dashboard yang memungkinkan 1 Notaris mengelola banyak perusahaan Klien sekaligus dalam 1 akun.
+- **Modal Tambah Klien via Kode**: Modal popup interaktif untuk memasukkan Kode Undangan unik Klien secara instan.
 
-### 7. 🛡️ Role-Based Access Control (RBAC) & Visual Wewenang
+### 7. 🛡️ Role-Based Access Control (RBAC) & Dynamic Multi-Role Architecture
+- **Dynamic Onboarding per Role**: Pendiri (Form Buat Bisnis Baru), Penerus (Form Masuk Kode Undangan), dan Notaris Partner (Form Registrasi Katalog / Masuk Kode Klien).
 - **Matriks Akses Dinamis**: Pembagian hak akses otomatis antara Pendiri (*Full Admin*), Penerus (*Operational & Relational*), dan Notaris Partner (*Legal Inspector*).
+- **Lencana Visual Wewenang**: Indikator hak akses real-time di halaman Milestone & Vault Dokumen.
 
 ### 8. 🎓 Learning Hub (`/learn`)
 - **Modul Edukasi Suksesi**: Materi pembelajaran interaktif tentang pendelegasian operasional dan kepatuhan hukum.
