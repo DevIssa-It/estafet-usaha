@@ -2,79 +2,78 @@
 
 > **Tagline**: *Menjamin Keberlanjutan Bisnis Keluarga dari Generasi ke Generasi dengan Transparansi, Legalitas, dan AI Advisor.*
 
-![Estafet Usaha Banner](https://img.shields.io/badge/Status-Hackathon%20Ready-4f46e5?style=for-the-badge&logo=next.js)
-![Framework](https://img.shields.io/badge/Next.js-16.2-black?style=for-the-badge&logo=next.js)
-![Database](https://img.shields.io/badge/Supabase-Auth%20%26%20RLS-emerald?style=for-the-badge&logo=supabase)
-![AI Intelligence](https://img.shields.io/badge/Google%20Gemini-AI%20Advisor-blue?style=for-the-badge&logo=google)
+![Estafet Usaha Banner](https://img.shields.io/badge/Competisi-IndonesiaNEXT%20Hackathon%2010-4f46e5?style=for-the-badge&logo=next.js)
+![Role](https://img.shields.io/badge/Role-Hacker%20(Full--Stack%20MVP)-black?style=for-the-badge&logo=code)
+![Tema](https://img.shields.io/badge/Tema-Literasi%20Finansial-emerald?style=for-the-badge&logo=supabase)
+![AI Engine](https://img.shields.io/badge/Google%20Gemini-AI%20Advisor-blue?style=for-the-badge&logo=google)
 
 ---
 
-## 🎯 TEMA & KATEGORI HACKATHON
+## 🏆 KONTRIBUTOR & KETERANGAN COMPETITION
 
-- **Tema Utama**: **Inovasi Teknologi Digital untuk Keberlanjutan, Tata Kelola, & Daya Saing UMKM Indonesia**
-- **Sub-Tema / Track**: *Business Governance, FinTech & LegalTech for Family Enterprise Continuity*
-- **Fokus Solusi**: Transformasi digital dalam memecahkan masalah krisis transisi kepemimpinan & regenerasi bisnis keluarga (*Family Business Succession Crisis*).
+- **Kompetisi**: **Hackathon Individu ke-10 IndonesiaNEXT (Durasi 24 Jam)**
+- **Tema Terpilih**: **Literasi Finansial** (*Financial Literacy, Business Valuation & Family Business Governance*)
+- **Peran (Role)**: **Hacker** (Full-Stack MVP Developer)
+- **Tenggat Pengumpulan**: **26 Juli 2026**
 
 ---
 
-## 📌 Latar Belakang & Masalah (Problem Statement)
+## 📌 Latar Belakang & Masalah (Problem Statement — 20% Bobot Penilaian)
 
-Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UMKM) berbasis keluarga**. Namun, data menunjukkan realitas yang memprihatinkan:
-- ❌ **Hanya 30%** bisnis keluarga yang berhasil bertahan hingga Generasi Kedua.
-- ❌ **Hanya 13%** yang berhasil melanjutkan hingga Generasi Ketiga.
-- 📉 Dikenal dengan mitos klasik: *"Generasi Pertama Membangun, Generasi Kedua Menikmati, Generasi Ketiga Menghancurkan"*.
+Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UMKM) berbasis keluarga** (sekitar 4,5 juta unit usaha). Namun, data menunjukkan realitas yang memprihatinkan:
+- ❌ **70% bisnis keluarga gagal bertahan** di Generasi Kedua.
+- ❌ **85% tidak memiliki perencanaan suksesi** atau dokumen legal tertulis.
+- 📉 Mitos klasik: *"Generasi Pertama Membangun, Generasi Kedua Menikmati, Generasi Ketiga Menghancurkan"*.
 
-### 🔍 Akar Masalah Utama:
-1. **Ketiadaan Perencanaan Legal**: Transisi kepemilikan saham dan aset seringkali hanya lisan tanpa Akta Hibah/Perubahan Notariil.
-2. **Hambatan Komunikasi Intergenerasi**: Adanya canggung emosional antara *Pendiri* yang enggan melepas kendali dan *Penerus* yang merasa tidak dipercaya.
-3. **Ketiadaan Dokumentasi & SOP**: Pengetahuan operasional dan jaringan vendor hanya tersimpan di kepala Pendiri.
-4. **Ketidakjelasan Valuasi Finansial**: Ketiadaan gambaran objektif mengenai estimasi nilai bisnis dan biaya transisi pajak suksesi.
+### 🔍 Akar Masalah Multidimensi:
+1. **Rendahnya Literasi Finansial**: Ketiadaan gambaran objektif valuasi bisnis dan ketidaktahuan estimasi pajak hibah/pengalihan saham.
+2. **Ketiadaan Perencanaan Legal**: Transisi kepemilikan saham dan aset seringkali hanya lisan tanpa Akta Hibah Notaris.
+3. **Hambatan Komunikasi Intergenerasi**: Adanya rasa canggung emosional antara Pendiri dan Penerus.
+4. **Ketiadaan Dokumentasi SOP**: Pengetahuan operasional bisnis hanya tersimpan di kepala Pendiri.
 
 ---
 
 ## 💡 Solusi Inovatif: Estafet Usaha
 
-**Estafet Usaha** hadir sebagai platform digital All-in-One terstruktur pertama di Indonesia yang dirancang khusus untuk memandu keluarga pengusaha melalui 4 pilar utama suksesi: **Legal**, **Finansial**, **Operasional**, dan **Relasional**.
+**Estafet Usaha** hadir sebagai platform digital *All-in-One* terstruktur pertama di Indonesia yang dirancang khusus untuk memandu keluarga pengusaha melalui 4 pilar utama suksesi: **Legal**, **Finansial**, **Operasional**, dan **Relasional**.
 
 ---
 
-## 🚀 Fitur-Fitur Unggulan
+## 🚀 Fitur-Fitur Unggulan (20% Kualitas & Kegunaan Output)
 
-### 1. 📊 Dashboard Suksesi & Readiness Score Radar
-- **Metrics Readiness Score (0-100%)**: Perhitungan skor kesiapan suksesi real-time berdasarkan pemenuhan 12 milestone strategis.
-- **Peta Pilar Suksesi**: Visualisasi kemajuan di pilar Legal, Finansial, Operasional, dan Relasional.
-
-### 2. 🤖 AI Suksesi Advisor (Powered by Google Gemini 2.0 Flash)
-- **Konsultasi AI 24/7**: Konsultan AI interaktif yang memahami konteks hukum PT/CV Indonesia, dinamika emosional keluarga, dan manajemen UMKM.
-- **Multi-Model Fallback Engine**: Sistem cerdas yang menjamin zero-downtime AI chat.
-- **Tampilan Interaktif**: Dilengkapi tombol 1-Click Copy, rendering Markdown bersih, dan dukungan penuh seleksi teks.
-
-### 3. 🧮 Financial Simulator & Valuasi Bisnis
-- **Simulasi Nilai Pasar**: Menghitung estimasi valuasi bisnis berdasarkan EBITDA Multiplier industri.
+### 1. 🧮 Financial Simulator & Valuasi Bisnis (`/simulator`)
+- **Simulasi Nilai Pasar (Valuasi)**: Menghitung estimasi valuasi bisnis berdasarkan EBITDA Multiplier industri.
 - **Kalkulator Transisi Pajak & Biaya Legal**: Estimasi otomatis biaya Akta Notaris dan Pajak Pengalihan Saham/Hibah.
 
-### 4. 📜 Automated Family Charter Generator
-- **Generator Piagam Keluarga**: Generator otomatis *Family Charter* (Kesepakatan Tata Kelola & Remunerasi Keluarga) yang siap dicetak & ditandatangani.
-- **Custom Parameters**: Pengaturan hak veto pendiri, alokasi dividen ditahan, dan skema gaji penerus.
+### 2. 🤖 AI Suksesi Advisor (`/advisor`)
+- **Powered by Google Gemini AI**: Konsultan AI interaktif 24/7 khusus hukum & tata kelola bisnis keluarga Indonesia.
+- **Multi-Model Auto-Fallback Engine**: Sistem cerdas yang secara otomatis beralih antar-model (`gemini-2.5-flash`, `gemini-3.1-flash-lite`) untuk menjamin zero-downtime.
+- **1-Click Copy & Markdown Clean**: Rendering pesan bersih tanpa karakter raw asterisk dan tombol 1-click salin.
 
-### 5. 🔒 Bilik Dokumen (Document Vault)
+### 3. 📊 Readiness Score Radar & Milestone Tracker (`/dashboard` & `/milestones`)
+- **Readiness Score Metrics (0–100%)**: Perhitungan skor kesiapan suksesi real-time berdasarkan pemenuhan 12 milestone.
+- **Peta Pilar Suksesi**: Visualisasi kemajuan di pilar Legal, Finansial, Operasional, dan Relasional.
+
+### 4. 📜 Automated Family Charter Generator (`/documents`)
+- **Generator Piagam Keluarga**: Generator otomatis *Family Charter* (Kesepakatan Tata Kelola & Remunerasi Keluarga) yang siap dicetak & ditandatangani.
+
+### 5. 🔒 Bilik Dokumen / Document Vault (`/vault`)
 - **Vault Terenkripsi**: Tempat penyimpanan terpusat untuk Akta Pendirian, SIUP, NPWP, NIB, dan Sertifikat Merek dengan pengamanan **Row Level Security (RLS)** Supabase.
 
-### 6. 🎓 Learning Hub (Edukasi Suksesi)
-- **Modul Interaktif**: Panduan langkah demi langkah tentang cara pendelegasian tugas, komunikasi antargenerasi, dan restrukturisasi legal.
+### 6. 🎓 Learning Hub (`/learn`)
+- **Modul Edukasi Suksesi**: Materi pembelajaran interaktif tentang pendelegasian operasional dan kepatuhan hukum.
 
 ---
 
-## 🎖️ Alignment Penilaian Hackathon (Hackathon Evaluation Criteria)
+## 🎯 Alignment Kriteria Penilaian Hackathon IndonesiaNEXT
 
-| Kriteria Penilaian | Implementasi di Estafet Usaha |
-|---|---|
-| **Kesesuaian Tema** | 100% selaras dengan tema keberlanjutan UMKM & tata kelola bisnis keluarga di Indonesia. |
-| **Dampak (Impact)** | Menyelesaikan masalah krusial 80%+ UMKM keluarga di Indonesia untuk mencegah kebangkrutan antargenerasi. |
-| **Inovasi Teknologi** | Menggabungkan **Next.js 16 App Router**, **Supabase Auth & RLS**, serta **Google Gemini AI LLM** dengan sistem Multi-Model Auto-Fallback. |
-| **Desain & Aesthetics** | Mengadopsi **Revolut Light Design System** (Light Slate Canvas `#f8fafc`, Obsidian Dark Sidebar `#0d1117`, Cobalt/Indigo Accent `#4f46e5`, High Contrast Typography). |
-| **Kualitas Kode & Arsitektur** | Menggunakan **Micro-Component Architecture** (komponen terpisah yang modular, reusable, ter-refactor bersih tanpa file monolithic). |
-| **Keamanan Data** | Pengamanan penuh berbasis **Supabase Row Level Security (RLS)** dan isolasi Server-Side API Key `.env.local`. |
+| Kriteria Penilaian | Bobot | Implementasi Teknis & Strategis |
+|---|---|---|
+| **Penguasaan Kompetensi Role (Hacker)** | **30%** | Full-stack MVP (Next.js 16 + Supabase Auth & RLS + Google Gemini AI LLM), Pipeline API utuh, Micro-component Architecture, & Git commit history per fitur. |
+| **Pemahaman Masalah** | **20%** | Solusi tepat sasaran mengatasi krisis 70% kegagalan suksesi 4,5 juta bisnis keluarga UMKM Indonesia di pilar finansial & legal. |
+| **Kualitas & Kegunaan Output** | **20%** | 6 Modul fitur lengkap, UI/UX Revolut Light Design System, responsif, 100% tanpa error, dan tombol utility 1-click. |
+| **Orisinalitas Pendekatan** | **15%** | Platform terintegrasi 4 pilar suksesi pertama di Indonesia dengan AI Advisor personal dan kalkulator valuasi transisi suksesi. |
+| **Kejelasan Penyampaian** | **15%** | Dokumentasi lengkap di [`PRD.md`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/PRD.md), [`README.md`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/README.md), dan skrip SQL seeder terstruktur. |
 
 ---
 
@@ -117,6 +116,7 @@ estafet-usaha/
 ├── lib/
 │   ├── supabase/                # Server & Browser Supabase Client & Helpers
 │   └── gemini.ts                # Multi-model Gemini AI Fallback Engine
+├── PRD.md                       # Official Product Requirements Document
 └── supabase/
     └── schema.sql               # Production Database Schema & SQL Seeder
 ```
@@ -169,6 +169,6 @@ Buka browser di `http://localhost:3000`.
 
 ---
 
-## 📄 Lisensi
+## 📄 Keterangan Submission
 
-Dikembangkan untuk **Hackathon Estafet Usaha 2026** — *Dibuat dengan ❤️ untuk UMKM Indonesia.*
+Dikembangkan secara khusus untuk **Hackathon Individu ke-10 IndonesiaNEXT (26 Juli 2026)** oleh Peran **Hacker**.

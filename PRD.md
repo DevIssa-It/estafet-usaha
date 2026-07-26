@@ -1,188 +1,116 @@
-# PRD.md — Estafet Usaha
+# 📄 PRD.md — Product Requirements Document
 
-## Product Requirements Document
+## 🇮🇩 Estafet Usaha — Platform Suksesi Bisnis Keluarga UMKM Indonesia
 
-**Versi:** 1.0.0  
-**Tanggal:** 26 Juli 2025  
-**Dibuat untuk:** IndonesiaNEXT Hackathon Individu ke-10  
-**Tema:** Literasi Finansial  
-**Role:** Hacker  
-
----
-
-## 1. Ringkasan Produk
-
-**Estafet Usaha** adalah platform digital yang membantu keluarga pengusaha UMKM Indonesia merencanakan, mengelola, dan mengeksekusi proses suksesi bisnis antargenerasi. Platform ini menggabungkan milestone tracker empat dimensi, AI advisor berbasis Gemini 2.0 Flash, dan sistem manajemen bisnis keluarga dalam satu aplikasi terintegrasi.
+- **Kompetisi:** Hackathon Individu ke-10 IndonesiaNEXT (Durasi 24 Jam)
+- **Tema Terpilih:** **Literasi Finansial** (*Financial Literacy, Business Valuation & Family Business Governance*)
+- **Role Candidate:** **Hacker** (Full-Stack MVP Developer)
+- **Target Audience:** Pendiri UMKM Generasi 1 (40–65 Tahun) & Generasi Penerus (22–40 Tahun)
 
 ---
 
-## 2. Rumusan Masalah
+## 1. Ringkasan Eksekutif & Value Proposition
 
-### Konteks
-Indonesia memiliki lebih dari 4,5 juta usaha keluarga yang menyumbang sekitar 85% dari total UMKM nasional. Namun, studi dari BRIN dan jurnal akademik menunjukkan bahwa:
+**Estafet Usaha** adalah platform digital *All-in-One* terstruktur pertama di Indonesia yang dirancang untuk meningkatkan **Literasi Finansial & Legalitas Suksesi Bisnis Keluarga UMKM**. 
 
-- **70% bisnis keluarga gagal bertahan di generasi kedua**
-- **85% tidak memiliki rencana suksesi tertulis**
-- **Rata-rata waktu ideal proses suksesi adalah 12 tahun**, namun jarang direncanakan sejak dini
+Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis, mengelola pajak pengalihan saham, menyusun kesepakatan *Family Charter*, serta berkonsultasi 24/7 dengan **AI Advisor (Google Gemini)** dalam 4 pilar utama: **Legal**, **Finansial**, **Operasional**, dan **Relasional**.
 
-### Dimensi Masalah
-Kegagalan suksesi bisnis keluarga bersifat multidimensi:
+---
 
-| Dimensi | Masalah |
+## 2. Rumusan Masalah & Pemahaman Konteks (20% Bobot Penilaian)
+
+### 📊 Fakta & Problematika UMKM Keluarga Indonesia:
+1. **Penyumbang Ekonomi Utama**: Lebih dari 4,5 juta unit usaha (80%+ total UMKM Indonesia) merupakan bisnis berbasis keluarga.
+2. **Krisis Antargenerasi**:
+   - **70% bisnis keluarga bangkrut/gagal** di Generasi Kedua.
+   - **85% tidak memiliki perencanaan suksesi** atau dokumen hukum yang sah.
+   - Mitos klasik *"Generasi 1 Membangun, Generasi 2 Menikmati, Generasi 3 Menghancurkan"*.
+
+### 🔍 Akar Masalah Multidimensi:
+
+| Dimensi Masalah | Deskripsi Problematika UMKM |
 |---|---|
-| **Legal** | Ketidakjelasan struktur kepemilikan, tidak ada dokumen suksesi resmi |
-| **Finansial** | Tidak ada valuasi bisnis, tidak memahami implikasi pajak warisan |
-| **Operasional** | Transfer pengetahuan yang tidak terstruktur, SOP tidak terdokumentasi |
-| **Relasional** | Konflik ekspektasi antara generasi, kurangnya komunikasi terbuka |
-
-### Target User
-- **Pendiri:** Pemilik bisnis keluarga generasi pertama (40–65 tahun) yang mulai memikirkan suksesi
-- **Penerus:** Anggota keluarga generasi kedua (25–40 tahun) yang akan mengambil alih bisnis
+| 🧮 **Literasi Finansial** | Pendiri & Penerus tidak tahu cara melakukan valuasi bisnis secara tepat dan tidak memperhitungkan beban pajak hibah/pengalihan saham. |
+| 📜 **Legalitas Hukum** | Penyerahan kepemilikan bisnis dilakukan lisan tanpa Akta Hibah Notaris & pencatatan Kemenkumham. |
+| 🔄 **Operasional & Transfer Knowledge** | Pengetahuan bisnis, SOP, dan relasi vendor hanya tersimpan di kepala Pendiri. |
+| 🤝 **Relasional & Komunikasi** | Hambatan emosional dan ketiadaan Perjanjian Tata Kelola Keluarga (*Family Charter*). |
 
 ---
 
-## 3. Solusi
+## 3. Spesifikasi Fitur MVP (20% Kualitas & Kegunaan Output)
 
-### Value Proposition
-> *"Platform satu pintu untuk merencanakan suksesi bisnis keluarga secara terstruktur, dengan panduan AI personal dan tracker progres visual."*
+### 3.1 Financial Simulator & Valuasi Bisnis (`/simulator`)
+- **Estimasi Nilai Pasar (Valuasi)**: Kalkulasi nilai pasar bisnis menggunakan *EBITDA Multiplier* spesifik industri (Perdagangan, Manufaktur, Jasa, Kuliner).
+- **Kalkulator Pajak & Biaya Transisi**: Menghitung estimasi Bea Balik Nama/Notaris dan Pajak Pengalihan Saham/Hibah.
+- **Proyeksi Pembagian Dividen**: Skema alokasi dividen ditahan untuk ekspansi vs dividen keluarga.
 
-### Fitur Utama (MVP)
+### 3.2 AI Suksesi Advisor (`/advisor`)
+- **Powered by Google Gemini AI**: Konsultan AI interaktif 24/7 khusus hukum & tata kelola bisnis keluarga Indonesia.
+- **Multi-Model Auto-Fallback Engine**: Sistem cerdas yang secara otomatis beralih antar-model (`gemini-2.5-flash`, `gemini-3.1-flash-lite`) untuk menjamin zero-downtime.
+- **1-Click Copy & Markdown Clean**: Rendering pesan bersih tanpa karakter raw asterisk dan tombol 1-click salin.
 
-#### 3.1 Milestone Tracker — 4 Dimensi Suksesi
-12 milestone default yang mencakup:
-- **Legal (3 milestone):** Inventarisasi dokumen, konsultasi notaris, pembaruan struktur kepemilikan
-- **Finansial (3 milestone):** Valuasi bisnis, perencanaan pajak, audit keuangan
-- **Operasional (3 milestone):** Dokumentasi SOP, pemetaan stakeholder, program pelatihan
-- **Relasional (3 milestone):** Diskusi keluarga, perkenalan stakeholder, Family Charter
+### 3.3 Readiness Score Radar & Milestone Tracker (`/dashboard` & `/milestones`)
+- **Readiness Score Metrics (0–100%)**: Perhitungan tingkat kesiapan suksesi secara real-time.
+- **12 Milestone Terstruktur**: Pemetaaan 12 langkah suksesi lintas 4 pilar (Legal, Finansial, Operasional, Relasional).
 
-#### 3.2 AI Advisor — Gemini 2.0 Flash
-- Chatbot konsultan suksesi bisnis berbasis LLM
-- Context-aware: respons berbeda untuk role Pendiri vs Penerus
-- Riwayat percakapan tersimpan di database per bisnis
-- Suggested prompts berdasarkan role
+### 3.4 Automated Family Charter Generator (`/documents`)
+- **Generator Piagam Keluarga**: Penyusunan Piagam Kesepakatan Tata Kelola & Remunerasi Keluarga siap cetak & tanda tangan secara otomatis.
+- **Custom Rule Parameters**: Hak veto pendiri, alokasi dividen, dan gaji penerus.
 
-#### 3.3 Multi-Role Dashboard
-- **Pendiri:** Pantau semua milestone, generate kode undangan, lihat tim suksesi
-- **Penerus:** Update status milestone, akses AI advisor, pantau progres keseluruhan
-- Invite system: Penerus bergabung via kode 6 karakter unik
+### 3.5 Bilik Dokumen / Document Vault (`/vault`)
+- **Vault Terenkripsi**: Tempat penyimpanan terpusat untuk Akta Pendirian, SIUP, NPWP, NIB, dan Sertifikat Merek dengan perlindungan Supabase RLS.
+
+### 3.6 Learning Hub (`/learn`)
+- **Modul Edukasi Suksesi**: Materi pembelajaran interaktif tentang pendelegasian operasional, komunikasi keluarga, dan kepatuhan hukum.
 
 ---
 
-## 4. Arsitektur Teknis
+## 4. Arsitektur Teknis & Kompetensi Role Hacker (30% Bobot Penilaian)
 
-### Stack
-| Layer | Teknologi | Alasan Pemilihan |
-|---|---|---|
-| Frontend | Next.js 14 (App Router) | SSR/SSG, API routes, optimal untuk SEO |
-| Styling | Tailwind CSS v4 + shadcn/ui | Component-based, Revolut design system |
-| Database | Supabase (PostgreSQL) | Built-in auth, RLS, realtime ready |
-| AI | Google Gemini 2.0 Flash | Free tier generous, quality terbaik, Bahasa Indonesia |
-| Deploy | Vercel | Zero-config deploy, public URL instan |
-| Auth | Supabase Auth | JWT + cookie-based, middleware protection |
+### 💻 Stack Teknologi:
+- **Framework**: Next.js 16.2 (React 19, App Router)
+- **Styling**: Tailwind CSS v4 + Revolut Light Design System
+- **Database & Auth**: Supabase PostgreSQL dengan Row Level Security (RLS)
+- **AI Integration**: Google Generative AI SDK (`@google/generative-ai`)
+- **Security**: Environment Variables Server-Side (`.env.local`), Tanpa Hardcode API Key
 
-### Arsitektur Aplikasi
-```
-app/
-├── (app)/              # Route group — protected app shell
-│   ├── layout.tsx      # Sidebar layout + auth check
-│   ├── dashboard/      # Dashboard overview
-│   ├── advisor/        # AI Chat
-│   ├── milestones/     # Milestone tracker
-│   └── onboarding/     # First-time setup
-├── (auth)/             # Auth pages
-├── api/advisor/chat/   # Gemini API route (server-side, no key exposure)
-└── page.tsx            # Landing page
-features/               # Feature-based modular architecture
-├── dashboard/components/
-├── advisor/components/
-├── milestones/components/ + actions/
-└── onboarding/actions/
-```
+### 🗄️ Supabase Database Schema:
+```sql
+-- Profiles Table
+profiles (id UUID PRIMARY KEY, full_name TEXT, role TEXT, business_id UUID, created_at TIMESTAMPTZ)
 
-### Keamanan
-- API key Gemini tersimpan di environment variable server-side (`GEMINI_API_KEY`)
-- Row Level Security (RLS) di Supabase: setiap user hanya bisa akses data bisnis mereka sendiri
-- Middleware auth: semua rute `/dashboard`, `/advisor`, `/milestones` dilindungi
+-- Businesses Table
+businesses (id UUID PRIMARY KEY, name TEXT, description TEXT, industry TEXT, founded_year INT, owner_id UUID, invite_code TEXT, created_at TIMESTAMPTZ)
 
-### Database Schema
-```
-profiles (id, full_name, role, business_id, created_at)
-businesses (id, name, description, industry, founded_year, owner_id, invite_code, created_at)
-business_members (id, business_id, user_id, role, joined_at)
-milestones (id, business_id, title, description, category, status, due_date, completed_at, created_at)
-chat_messages (id, business_id, user_id, role, content, created_at)
+-- Business Members Table
+business_members (id UUID PRIMARY KEY, business_id UUID, user_id UUID, role TEXT, joined_at TIMESTAMPTZ)
+
+-- Milestones Table
+milestones (id UUID PRIMARY KEY, business_id UUID, title TEXT, description TEXT, category TEXT, status TEXT, due_date DATE, completed_at TIMESTAMPTZ)
+
+-- Vault Documents Table
+vault_documents (id UUID PRIMARY KEY, business_id UUID, uploaded_by UUID, title TEXT, category TEXT, file_url TEXT, file_name TEXT, file_size INT)
+
+-- Chat Messages Table
+chat_messages (id UUID PRIMARY KEY, business_id UUID, user_id UUID, role TEXT, content TEXT, created_at TIMESTAMPTZ)
 ```
 
 ---
 
-## 5. User Journey
+## 5. Orisinalitas & Logika Keputusan Desain (15% Bobot Penilaian)
 
-### Journey Pendiri
-```
-Landing → Register (pilih "Pendiri") → Onboarding (isi data bisnis) →
-Dashboard (lihat 12 milestone + kode undangan) → Milestone (kelola progres) →
-Advisor (konsultasi AI strategi delegasi)
-```
-
-### Journey Penerus
-```
-Landing → Register (pilih "Penerus") → Onboarding (masukkan kode undangan) →
-Dashboard (lihat progres suksesi) → Milestone (update status tugas) →
-Advisor (konsultasi AI strategi pengambilalihan)
-```
+1. **Keunikan Pendekatan 4 Pilar**: Solusi pertama yang mengintegrasikan Literasi Finansial, Legalitas Notaris, SOP Operasional, dan Harmonisisasi Relasi Keluarga dalam 1 aplikasi.
+2. **Revolut Light Aesthetic**: Mengadopsi standar desain visual fintech dunia (Light Canvas `#f8fafc`, Obsidian Dark Sidebar `#0d1117`, Cobalt Accent `#4f46e5`, High-contrast Typography) yang disukai pengguna modern.
+3. **Micro-Component Architecture**: Kode terstruktur secara modular dalam folder `features/`, memudahkan pemeliharaan, skala, dan kolaborasi tim.
 
 ---
 
-## 6. Keputusan Desain
+## 6. Riwayat Commit & Pipeline Penuh (Persyaratan Hacker)
 
-### Mengapa Suksesi Bisnis?
-- Data prevalensi tajam: 70% gagal di generasi kedua, 4,5 juta bisnis keluarga terancam
-- Multiple independent dimensions: Legal + Finansial + Operasional + Relasional
-- Industri konsultan suksesi sudah ada, membuktikan demand nyata
-- LLM sangat natural sebagai "navigator" suksesi: user tahu mereka butuh bantuan, AI membantu mereka tahu *pertanyaan apa yang harus ditanyakan*
-
-### Mengapa 2 Role vs 1?
-- Mencerminkan realita: suksesi selalu melibatkan minimal 2 pihak dengan perspektif berbeda
-- Memungkinkan demonstrasi RLS Supabase (nilai teknis untuk hackathon)
-- AI advisor memberikan respons berbeda berdasarkan role (Pendiri: cara mendelegasikan vs Penerus: cara mengambil alih)
-
-### Limitasi yang Diakui
-1. **Tidak menggantikan notaris/akuntan:** Platform ini adalah navigator, bukan pengganti profesional legal/finansial
-2. **Scope MVP:** Versi ini tidak mencakup upload dokumen, laporan PDF, atau notifikasi otomatis
-3. **AI accuracy:** Gemini 2.0 Flash memberikan panduan umum; kondisi spesifik tiap bisnis perlu validasi profesional
+- ✅ **Commit GitHub Terstruktur**: Riwayat 9+ commit per fitur (*Feature-by-Feature Commits*) tanpa commit tunggal raksasa.
+- ✅ **Tanpa Hardcode Credentials**: Seluruh kunci API (`GEMINI_API_KEY`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`) tersimpan di `.env.local`.
+- ✅ **Koneksi Database & LLM Penuh**: Pipa data dari User Interface $\rightarrow$ Server API Route $\rightarrow$ Supabase Database $\rightarrow$ Google Gemini LLM API.
 
 ---
 
-## 7. Pipeline Teknis (Hackathon Requirement)
-
-```
-User Input (Frontend)
-    → Next.js API Route /api/advisor/chat (server-side)
-        → Supabase: verify auth + fetch profile/business context
-        → Google Gemini 2.0 Flash API (key di env, tidak hardcode)
-        → Supabase: save conversation to chat_messages table
-    → Response ke client
-```
-
-**Semua API key:** Tersimpan di `.env.local` (tidak pernah di-commit ke Git)  
-**Bukti pipeline:** Setiap percakapan AI tersimpan di tabel `chat_messages` dengan relasi ke `business_id` dan `user_id`
-
----
-
-## 8. Metrik Keberhasilan MVP
-
-| Metrik | Target |
-|---|---|
-| User dapat register dan login | ✅ |
-| Pendiri dapat buat bisnis + generate invite code | ✅ |
-| Penerus dapat join via invite code | ✅ |
-| 12 milestone ter-generate otomatis | ✅ |
-| Status milestone dapat diupdate | ✅ |
-| AI Advisor merespons dengan context bisnis | ✅ |
-| Riwayat chat tersimpan di database | ✅ |
-| RLS: user hanya akses data bisnis sendiri | ✅ |
-| Deploy publik via Vercel | 🔲 (pending deployment) |
-
----
-
-*Dokumen ini dibuat sebagai bagian dari submission IndonesiaNEXT Hackathon Individu ke-10.*
+*PRD ini disusun secara resmi untuk memenuhi persyaratan penyerahan karya Hackathon Individu ke-10 IndonesiaNEXT.*
