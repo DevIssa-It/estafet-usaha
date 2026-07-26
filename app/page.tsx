@@ -11,7 +11,7 @@ import { LandingFooter } from "@/features/landing/components/LandingFooter";
 
 export default function LandingPage() {
   return (
-    <div style={{ backgroundColor: "var(--color-canvas-dark)", color: "var(--color-on-dark)" }}>
+    <div style={{ backgroundColor: "#f8fafc", color: "#0f172a", minHeight: "100vh", fontFamily: "var(--font-body)" }}>
       <Navbar />
       <HeroSection />
       <StatsSection />
