@@ -1,25 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const SYSTEM_INSTRUCTION = `Kamu adalah Asisten Estafet Usaha, konsultan AI senior khusus suksesi & tata kelola bisnis keluarga UMKM di Indonesia.
+const SYSTEM_INSTRUCTION = `Kamu adalah Asisten Estafet Usaha, konsultan AI ramah dan profesional khusus suksesi & tata kelola bisnis keluarga UMKM di Indonesia.
 
-FORMAT WAJIB RESPONS:
-Setiap respons HARUS disusun rapi menggunakan Markdown dengan struktur sebagai berikut:
-
-### 1. Ringkasan Solusi
-Berikan penjelasan singkat (1-2 kalimat) yang menjawab langsung pertanyaan user.
-
-### 2. Langkah-Langkah Praktis
-Gunakan poin penomoran atau bullet point (maksimal 3-4 poin) yang terstruktur dan actionable.
-Gunakan **tebal** untuk kata kunci/istilah penting.
-
-### 3. Catatan Legal & Keuangan
-Berikan 1 poin penutup mengenai pertimbangan legalitas (Notaris/Kemenkumham) atau efisiensi pajak yang relevan.
-
-ATURAN GAYA BAHASA:
-- Gunakan Bahasa Indonesia yang profesional, ramah, dan empatik.
-- Sesuaikan saran berdasarkan role user (Pendiri vs Penerus).
-- Hindari paragraf panjang yang menumpuk. Gunakan pemisah baris yang lega.
-- JANGAN gunakan karakter emoji gambar raw dalam teks.`;
+PANDUAN RESPONS:
+- Jawablah pertanyaan pengguna secara langsung, relevan, dan alami sesuai konteks percakapan.
+- Gunakan Bahasa Indonesia yang hangat, sopan, dan mudah dipahami.
+- Sesuaikan gaya jawaban sesuai peran pengguna (Pendiri atau Penerus bisnis).
+- Jika respons membutuhkan poin-poin penjelasan, gunakan bullet point (-) atau nomor yang rapi dan singkat.
+- Gunakan cetak **tebal** pada kata kunci penting agar mudah dibaca sekilas.
+- Hindari template kaku yang tidak relevan dengan konteks pertanyaan user.
+- Jangan gunakan karakter emoji gambar dalam teks.`;
 
 // Verified Active Models from User's Google AI Studio Project Quota
 const MODELS_TO_TRY = [
@@ -37,68 +27,47 @@ function getSmartFallbackAdvice(message: string, role: string, businessName: str
 
   // Greeting Handler
   if (greetings.includes(lowerMsg) || lowerMsg.length <= 4) {
-    return `### 1. Selamat Datang di AI Suksesi Advisor
+    return `Halo! Saya adalah **AI Suksesi Advisor** untuk **${businessName}**.
 
-Saya adalah konsultan AI pendamping suksesi untuk **${businessName}**.
-
-### 2. Topik Konsultasi Utama
-- **Legalitas & Notaris**: Pembuatan akta hibah saham, sertifikat merek, & pendaftaran Kemenkumham.
-- **Finansial & Valuasi**: Perhitungan nilai pasar bisnis, estimasi pajak pengalihan, & alokasi dividen.
-- **Operasional & Delegasi**: Pemetaan SOP, transfer pengetahuan, & pelatihan kepemimpinan penerus.
-
-### 3. Catatan Penggunaan
-Silakan ketik pertanyaan spesifik Anda di bawah untuk mendapatkan panduan langkah demi langkah.`;
+Ada yang ingin Anda konsulitasi kan hari ini mengenai suksesi bisnis keluarga Anda? Saya siap membantu memberikan panduan seputar:
+- **Legalitas & Notaris**: Akta hibah saham, sertifikat merek, & kepatuhan Kemenkumham.
+- **Finansial & Valuasi**: Perhitungan estimasi nilai pasar bisnis & pajak pengalihan.
+- **Operasional & Delegasi**: Standarisasi SOP & pelatihan kepemimpinan penerus.`;
   }
 
   if (lowerMsg.includes("legal") || lowerMsg.includes("akta") || lowerMsg.includes("notaris") || lowerMsg.includes("hukum")) {
-    return `### 1. Ringkasan Legalitas Suksesi
-Proses pengalihan kepemilikan bisnis **${businessName}** wajib memiliki kepastian hukum tertulis agar terhindar dari sengketa di kemudian hari.
+    return `Mengenai aspek legalitas suksesi untuk **${businessName}**:
 
-### 2. Langkah-Langkah Praktis
-1. **Inventarisasi Akta Pendirian**: Pastikan seluruh dokumen SIUP, NIB, NPWP, dan Akta Perubahan Terakhir sudah lengkap.
-2. **Penyusunan Akta Hibah Saham**: Lakukan pengalihan porsi saham dari Pendiri ke Penerus melalui Akta Hibah Notariil.
-3. **Penyusunan Family Charter**: Legalisasikan Perjanjian Tata Kelola Keluarga yang mengatur remunerasi dan hak veto.
+1. **Akta Pendirian & Perubahan**: Pastikan susunan pemegang saham terbaru sudah dicatatkan di Notaris dan Kemenkumham.
+2. **Akta Penyerahan / Hibah Saham**: Lakukan pengalihan porsi saham dari Pendiri ke Penerus melalui Akta Hibah Notariil agar terlindungi secara hukum.
+3. **Perjanjian Keluarga (Family Charter)**: Legalisasikan aturan tata kelola keluarga yang mengatur remunerasi dan wewenang.
 
-### 3. Catatan Legal & Keuangan
-Jadwalkan konsultasi dengan Notaris partner untuk pencatatan resmi ke sistem AHU Kemenkumham.`;
+Saran saya, agendakan diskusi awal dengan Notaris partner untuk meninjau kelengkapan berkas Anda.`;
   }
 
   if (lowerMsg.includes("delegasi") || lowerMsg.includes("tugas") || lowerMsg.includes("operasional") || lowerMsg.includes("karyawan")) {
-    return `### 1. Ringkasan Pendelegasian Operasional
-Tahap pendelegasian di **${businessName}** dilakukan secara bertahap agar tidak menggangu stabilitas layanan dan hubungan dengan klien kunci.
+    return `Berikut rekomendasi pendelegasian operasional secara bertahap untuk **${businessName}**:
 
-### 2. Langkah-Langkah Praktis
-1. **Fase Mentoring (Bulan 1-2)**: Dampingi generasi penerus dalam mengambil keputusan operasional harian.
-2. **Fase Pendelegasian Khusus (Bulan 3-4)**: Berikan tanggung jawab penuh pada 1 divisi strategis (seperti Operasional atau Pemasaran).
-3. **Fase Uji Coba Mandiri (Bulan 5-6)**: Berikan wewenang penuh dengan Pendiri bertindak sebagai Dewan Pengawas.
+- **Fase Mentoring**: Pendiri mendampingi penerus dalam mengambil keputusan operasional harian selama 1-2 bulan.
+- **Fase Wewenang Khusus**: Berikan tanggung jawab penuh pada divisi spesifik (seperti Operasional atau Pemasaran Digital).
+- **Fase Uji Coba Mandiri**: Berikan kebebasan memimpin penuh dengan Pendiri bertindak sebagai Dewan Pengawas.
 
-### 3. Catatan Legal & Keuangan
-Dokumentasikan seluruh alur kerja ke dalam **Standar Operasional Prosedur (SOP)** tertulis.`;
+Pastikan seluruh alur kerja telah didokumentasikan dalam **SOP tertulis** agar pengetahuan bisnis tidak hilang.`;
   }
 
   if (role === "pendiri") {
-    return `### 1. Ringkasan Peran Pendiri
-Sebagai Pendiri **${businessName}**, wewenang Anda adalah memandu transisi kepemimpinan secara tenang dan terukur.
+    return `Sebagai Pendiri **${businessName}**, langkah awal suksesi yang direkomendasikan adalah:
 
-### 2. Langkah-Langkah Praktis
-1. **Ukur Skor Kesiapan**: Periksa pencapaian 12 milestone suksesi pada menu **Dashboard**.
-2. **Hitung Valuasi Bisnis**: Gunakan **Financial Simulator** untuk mengetahui estimasi harga pasar wajar bisnis Anda.
-3. **Buka Ruang Komunikasi**: Agendakan diskusi keluarga rutin untuk menyelaraskan ekspektasi antargenerasi.
-
-### 3. Catatan Legal & Keuangan
-Pastikan hak alokasi dividen ditahan dan dana pensiun pendiri sudah tercantum dalam aturan tertulis.`;
+1. **Evaluasi Kesiapan**: Cek pencapaian 12 milestone suksesi pada menu **Dashboard**.
+2. **Kalkulasi Valuasi**: Gunakan menu **Financial Simulator** untuk mengetahui estimasi nilai pasar bisnis Anda.
+3. **Komunikasi Berkelanjutan**: Agendakan pertemuan keluarga tanpa tekanan untuk menyelaraskan visi masa depan.`;
   }
 
-  return `### 1. Ringkasan Peran Generasi Penerus
-Sebagai Penerus **${businessName}**, fokus utama Anda adalah membangun kapasitas kepemimpinan dan pemahaman mendalam tentang bisnis.
+  return `Sebagai Generasi Penerus **${businessName}**, langkah utama yang perlu Anda lakukan adalah:
 
-### 2. Langkah-Langkah Praktis
-1. **Pelajari Alur Bisnis**: Kuasai rantai pasok dari supplier utama hingga pelanggan terbesar.
-2. **Akses Modul Edukasi**: Pelajari panduan hukum dan manajemen di tab **Edukasi Suksesi**.
-3. **Perbarui Status Tugas**: Perbarui progres milestone yang menjadi tanggung jawab Anda secara berkala.
-
-### 3. Catatan Legal & Keuangan
-Diskusikan ekspektasi remunerasi dan skema kepemilikan saham secara transparan bersama Pendiri.`;
+1. **Pahami Alur Bisnis**: Pelajari rantai pasok dan bangun hubungan baik dengan vendor serta pelanggan utama.
+2. **Akses Hub Edukasi**: Pelajari modul hukum dan keuangan di tab **Edukasi Suksesi**.
+3. **Komunikasi Transparan**: Agendakan evaluasi berkala bersama Pendiri untuk menyelaraskan ekspektasi kepemimpinan.`;
 }
 
 export async function generateAdvisorResponse(

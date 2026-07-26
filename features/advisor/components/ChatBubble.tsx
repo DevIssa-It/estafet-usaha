@@ -10,7 +10,7 @@ interface ChatBubbleProps {
   time?: string;
 }
 
-// Advanced Markdown parser rendering headings, numbered lists, bullets, and bold highlights cleanly
+// Clean Markdown parser rendering headings, numbered lists, bullets, and bold highlights naturally
 function renderFormattedContent(text: string, isUser: boolean) {
   const lines = text.split("\n");
 
@@ -18,24 +18,21 @@ function renderFormattedContent(text: string, isUser: boolean) {
     let trimmed = line.trim();
 
     if (!trimmed) {
-      return <div key={lineIdx} style={{ height: 6 }} />;
+      return <div key={lineIdx} style={{ height: 4 }} />;
     }
 
-    // Header 1, 2, or 3 (### Heading)
+    // Header lines (#, ##, ###)
     if (trimmed.startsWith("#")) {
       const headingText = trimmed.replace(/^#+\s*/, "").replaceAll("*", "");
       return (
         <h4
           key={lineIdx}
           style={{
-            fontSize: 14,
+            fontSize: 15,
             fontWeight: 700,
-            marginTop: lineIdx === 0 ? 0 : 14,
-            marginBottom: 6,
-            color: isUser ? "#ffffff" : "#4f46e5",
-            letterSpacing: "-0.2px",
-            borderBottom: isUser ? "none" : "1px solid #e0e7ff",
-            paddingBottom: 4,
+            marginTop: lineIdx === 0 ? 0 : 10,
+            marginBottom: 4,
+            color: isUser ? "#ffffff" : "#0f172a",
           }}
         >
           {headingText}
@@ -76,7 +73,7 @@ function renderFormattedContent(text: string, isUser: boolean) {
       <div
         key={lineIdx}
         style={{
-          marginBottom: 4,
+          marginBottom: 3,
           paddingLeft: isBullet || isNumber ? 8 : 0,
           lineHeight: 1.6,
         }}
@@ -98,7 +95,7 @@ export function ChatBubble({ role, content, time }: ChatBubbleProps) {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: isUser ? "flex-end" : "flex-start", width: "100%", margin: "8px 0" }}>
+    <div style={{ display: "flex", justifyContent: isUser ? "flex-end" : "flex-start", width: "100%", margin: "6px 0" }}>
       <div style={{
         maxWidth: "82%",
         width: "fit-content",
