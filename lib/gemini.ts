@@ -37,9 +37,9 @@ function getSmartFallbackAdvice(message: string, role: string, businessName: str
     return `Halo! Saya adalah **AI Advisor Estafet Usaha** untuk **${businessName}**. 
 
 Ada yang bisa saya bantu hari ini seputar rencana suksesi bisnis keluarga Anda? Anda dapat menanyakan tentang:
-- 📜 **Legalitas**: Pembuatan akta hibah saham, sertifikat merek, & notaris.
-- 🧮 **Finansial**: Valuasi bisnis, estimasi pajak transfer, & alokasi dividen.
-- 🔄 **Operasional**: Pendelegasian tugas, penyusunan SOP, & pelatihan penerus.`;
+- **Legalitas**: Pembuatan akta hibah saham, sertifikat merek, & notaris.
+- **Finansial**: Valuasi bisnis, estimasi pajak transfer, & alokasi dividen.
+- **Operasional**: Pendelegasian tugas, penyusunan SOP, & pelatihan penerus.`;
   }
 
   if (lowerMsg.includes("legal") || lowerMsg.includes("akta") || lowerMsg.includes("notaris") || lowerMsg.includes("hukum")) {
