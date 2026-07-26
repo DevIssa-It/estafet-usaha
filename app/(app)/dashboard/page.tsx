@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { getUserProfile } from "@/lib/supabase/getProfile";
+import { getProfileAndBusiness } from "@/lib/supabase/getProfileAndBusiness";
 import { redirect } from "next/navigation";
 import { DashboardView } from "@/features/dashboard/components/DashboardView";
 
@@ -12,27 +12,7 @@ export default async function DashboardPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/auth");
 
-  const profile = await getUserProfile(supabase, user.id);
-
-  if (!profile?.business_id) redirect("/onboarding");
-
-  // For pendiri: business is embedded via JOIN in profile
-  // For penerus: business may not be embedded (RLS blocks foreign key join),
-  //              so we fetch it directly by business_id
-  let business = (profile as any).businesses ?? null;
-
-  if (!business && profile.business_id) {
-    const { data: fetchedBusiness } = await supabase
-      .from("businesses")
-      .select("*")
-      .eq("id", profile.business_id)
-      .maybeSingle();
-    business = fetchedBusiness ?? null;
-  }
-
-  // Still null → penerus has business_id but business lookup failed;
-  // redirect to onboarding so they can join via invite code
-  if (!business) redirect("/onboarding");
+  const { profile, business } = await getProfileAndBusiness(supabase, user.id);
 
   const { data: milestones } = await supabase
     .from("milestones")
