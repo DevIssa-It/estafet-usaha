@@ -119,7 +119,10 @@ BEGIN
     'Perdagangan / Retail', 1998,
     'a1111111-1111-1111-1111-111111111111',
     'ESTAF1'
-  ) ON CONFLICT (id) DO NOTHING;
+  ) ON CONFLICT (id) DO UPDATE SET
+    owner_id   = 'a1111111-1111-1111-1111-111111111111',
+    name       = excluded.name,
+    industry   = excluded.industry;
 
   -- ── Update business_id semua profiles termasuk Budi ──
   UPDATE public.profiles
