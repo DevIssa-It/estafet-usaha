@@ -12,64 +12,59 @@ export function ReadinessScoreCard({ milestones }: ReadinessScoreCardProps) {
   const score = total > 0 ? Math.round((completed / total) * 100) : 0;
 
   let riskLevel: "Rendah" | "Sedang" | "Tinggi" = "Tinggi";
-  let statusText = "Perlu Perhatian Khusus";
-  let badgeColor = "var(--color-accent-danger)";
-  let bgGradient = "linear-gradient(135deg, rgba(230,30,73,0.1) 0%, rgba(230,30,73,0.02) 100%)";
-  let borderColor = "rgba(230,30,73,0.25)";
+  let statusText = "Tahap Perencanaan Awal Suksesi";
+  const badgeColor = "#4f46e5";
+  const bgGradient = "#ffffff";
+  const borderColor = "#e2e8f0";
 
   if (score >= 80) {
     riskLevel = "Rendah";
-    statusText = "Kesiapan Tinggi";
-    badgeColor = "var(--color-accent-teal)";
-    bgGradient = "linear-gradient(135deg, rgba(0,168,126,0.1) 0%, rgba(0,168,126,0.02) 100%)";
-    borderColor = "rgba(0,168,126,0.25)";
+    statusText = "Kesiapan Suksesi Sangat Tinggi";
   } else if (score >= 50) {
     riskLevel = "Sedang";
-    statusText = "Dalam Transisi Baik";
-    badgeColor = "var(--color-accent-warning)";
-    bgGradient = "linear-gradient(135deg, rgba(236,126,0,0.1) 0%, rgba(236,126,0,0.02) 100%)";
-    borderColor = "rgba(236,126,0,0.25)";
+    statusText = "Dalam Transisi Suksesi Berjalan Baik";
   }
 
   const categories = Object.entries(CATEGORY_LABELS) as [MilestoneCategory, string][];
 
   return (
     <div style={{
-      background: bgGradient,
+      backgroundColor: bgGradient,
       border: `1px solid ${borderColor}`,
-      borderRadius: "var(--rounded-lg)",
-      padding: 24,
+      borderRadius: 16,
+      padding: 28,
       marginBottom: 32,
+      boxShadow: "0 2px 8px rgba(15, 23, 42, 0.03)",
     }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 20 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 24 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div style={{
-            width: 44, height: 44, borderRadius: "var(--rounded-md)",
-            backgroundColor: badgeColor + "20",
-            border: `1px solid ${badgeColor}`,
+            width: 48, height: 48, borderRadius: 12,
+            backgroundColor: "#e0e7ff",
+            border: "1px solid #c7d2fe",
             display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
           }}>
             {score >= 80 ? (
-              <CheckCircle size={22} color={badgeColor} weight="fill" />
+              <CheckCircle size={24} color="#4f46e5" weight="fill" />
             ) : score >= 50 ? (
-              <ShieldCheck size={22} color={badgeColor} weight="fill" />
+              <ShieldCheck size={24} color="#4f46e5" weight="fill" />
             ) : (
-              <Warning size={22} color={badgeColor} weight="fill" />
+              <Warning size={24} color="#4f46e5" weight="fill" />
             )}
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <h2 className="heading-sm" style={{ color: "var(--color-on-dark)" }}>
+              <h2 className="heading-sm" style={{ color: "#0f172a", fontSize: 18, fontWeight: 700 }}>
                 Indeks Kesiapan Suksesi (Succession Score)
               </h2>
               <span style={{
-                fontSize: 11, fontWeight: 700, borderRadius: "var(--rounded-full)", padding: "2px 10px",
-                backgroundColor: badgeColor + "20", color: badgeColor, border: `1px solid ${badgeColor}`,
+                fontSize: 11, fontWeight: 700, borderRadius: 999, padding: "3px 12px",
+                backgroundColor: "#e0e7ff", color: "#4338ca", border: "1px solid #c7d2fe",
               }}>
                 Risiko {riskLevel}
               </span>
             </div>
-            <p className="body-sm" style={{ color: "var(--color-on-dark-mute)", marginTop: 2 }}>
+            <p className="body-sm" style={{ color: "#475569", marginTop: 4, fontSize: 14 }}>
               {statusText} · {score}% dari total 4 dimensi terisi
             </p>
           </div>
@@ -77,19 +72,19 @@ export function ReadinessScoreCard({ milestones }: ReadinessScoreCardProps) {
 
         <div style={{ textAlign: "right", display: "flex", alignItems: "center", gap: 16 }}>
           <div>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: badgeColor, lineHeight: 1 }}>
-              {score}<span style={{ fontSize: 18, fontWeight: 600 }}>/100</span>
+            <div style={{ fontFamily: "var(--font-display)", fontSize: 36, fontWeight: 800, color: "#4f46e5", lineHeight: 1 }}>
+              {score}<span style={{ fontSize: 18, fontWeight: 600, color: "#64748b" }}>/100</span>
             </div>
-            <div className="caption" style={{ color: "var(--color-stone)", marginTop: 4 }}>Score Matrix</div>
+            <div className="caption" style={{ color: "#64748b", marginTop: 4, fontSize: 12 }}>Score Matrix</div>
           </div>
-          <Link href="/simulator" className="btn btn-cobalt" style={{ padding: "8px 16px", fontSize: 13, gap: 6 }}>
-            Kalkulator Finansial <ArrowRight size={14} />
+          <Link href="/simulator" className="btn btn-cobalt" style={{ padding: "10px 20px", fontSize: 14, gap: 6, fontWeight: 600, height: 42 }}>
+            Kalkulator Finansial <ArrowRight size={14} weight="bold" />
           </Link>
         </div>
       </div>
 
       {/* Breakdown Grid per Dimension */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
         {categories.map(([cat, label]) => {
           const catMilestones = milestones.filter((m) => m.category === cat);
           const done = catMilestones.filter((m) => m.status === "completed").length;
@@ -98,17 +93,17 @@ export function ReadinessScoreCard({ milestones }: ReadinessScoreCardProps) {
 
           return (
             <div key={cat} style={{
-              backgroundColor: "rgba(0,0,0,0.3)",
-              border: "1px solid var(--color-hairline-dark)",
-              borderRadius: "var(--rounded-md)",
-              padding: "12px 14px",
+              backgroundColor: "#f8fafc",
+              border: "1px solid #e2e8f0",
+              borderRadius: 12,
+              padding: "14px 16px",
             }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                <span style={{ fontSize: 12, fontWeight: 600, color: "var(--color-on-dark)" }}>{label}</span>
-                <span style={{ fontSize: 12, fontWeight: 700, color }}>{catPct}%</span>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                <span style={{ fontSize: 13, fontWeight: 600, color: "#0f172a" }}>{label}</span>
+                <span style={{ fontSize: 13, fontWeight: 700, color }}>{catPct}%</span>
               </div>
-              <div className="progress-bar" style={{ height: 4 }}>
-                <div className="progress-fill" style={{ width: `${catPct}%`, backgroundColor: color }} />
+              <div className="progress-bar" style={{ height: 6, backgroundColor: "#e2e8f0", borderRadius: 99 }}>
+                <div className="progress-fill" style={{ width: `${catPct}%`, backgroundColor: color, borderRadius: 99 }} />
               </div>
             </div>
           );

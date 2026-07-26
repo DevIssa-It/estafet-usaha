@@ -28,13 +28,12 @@ export function DashboardView({
   const completed = milestones.filter((m) => m.status === "completed").length;
   const inProgress = milestones.filter((m) => m.status === "in_progress").length;
   const total = milestones.length;
-  const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
 
   const stats = [
-    { label: "Total Milestone", value: total, icon: CheckCircle, color: "var(--color-primary)" },
-    { label: "Selesai", value: completed, icon: Trophy, color: "var(--color-accent-teal)" },
-    { label: "Dalam Proses", value: inProgress, icon: Fire, color: "var(--color-accent-warning)" },
-    { label: "Anggota Tim", value: members.length, icon: Users, color: "var(--color-accent-pink)" },
+    { label: "Total Milestone", value: total, icon: CheckCircle, color: "#4f46e5" },
+    { label: "Selesai", value: completed, icon: Trophy, color: "#0284c7" },
+    { label: "Dalam Proses", value: inProgress, icon: Fire, color: "#6366f1" },
+    { label: "Anggota Tim", value: members.length, icon: Users, color: "#4338ca" },
   ];
 
   return (
@@ -44,121 +43,99 @@ export function DashboardView({
         marginBottom: 24,
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justify: "space-between",
         padding: "24px 32px",
         background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+        border: "1px solid #e2e8f0",
+        borderRadius: 16,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           {/* Avatar Circle */}
           <div style={{
-            width: 56, height: 56, borderRadius: "var(--rounded-full)",
-            backgroundColor: "var(--color-primary)", color: "white",
+            width: 56, height: 56, borderRadius: 9999,
+            backgroundColor: "#4f46e5", color: "white",
             fontSize: 22, fontWeight: 700,
             display: "flex", alignItems: "center", justifyContent: "center",
             boxShadow: "0 4px 12px rgba(79,70,229,0.25)",
             flexShrink: 0,
           }}>
-            {profile.full_name ? profile.full_name.charAt(0).toUpperCase() : "U"}
+            {profile.full_name.charAt(0).toUpperCase()}
           </div>
-
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
-              <h1 className="heading-md" style={{ color: "var(--color-on-dark)" }}>
-                Selamat Datang, {profile.full_name}
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <h1 className="heading-lg" style={{ color: "#0f172a", fontSize: 24, fontWeight: 700 }}>
+                {business.name}
               </h1>
-              <span className="badge-feature" style={{ fontSize: 11, padding: "2px 10px" }}>
-                {profile.role === "pendiri" ? "Pendiri" : "Penerus"}
+              <span className="badge-tag" style={{ fontSize: 12, backgroundColor: "#e0e7ff", color: "#4338ca", border: "1px solid #c7d2fe" }}>
+                {profile.role === "pendiri" ? "Generasi Pendiri" : "Generasi Penerus"}
               </span>
             </div>
-            <p className="body-sm" style={{ color: "var(--color-on-dark-mute)" }}>
-              {business.name} · {business.industry} {business.founded_year ? `· Est. ${business.founded_year}` : ""}
+            <p className="body-md" style={{ color: "#475569", marginTop: 4 }}>
+              Selamat datang kembali, <strong>{profile.full_name}</strong>. Berikut ikhtisar suksesi bisnis Anda.
             </p>
           </div>
         </div>
 
-        {/* Right suksesi overview badge */}
-        <div style={{
-          backgroundColor: "#f1f5f9",
-          border: "1px solid #e2e8f0",
-          borderRadius: "var(--rounded-md)",
-          padding: "10px 20px",
-          textAlign: "right",
-        }}>
-          <div style={{ fontSize: 11, fontWeight: 600, color: "var(--color-stone)", textTransform: "uppercase", letterSpacing: 0.5 }}>
-            Status Suksesi
-          </div>
-          <div style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, color: "var(--color-primary)" }}>
-            {percentage}% Selesai
-          </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <Link href="/milestones" className="btn btn-cobalt" style={{ padding: "10px 20px", fontSize: 14, gap: 8, fontWeight: 600 }}>
+            Kelola Milestone <ArrowRight size={16} weight="bold" />
+          </Link>
         </div>
       </div>
 
-      {/* Readiness Score Card */}
+      {/* Readiness Score Radar Card */}
       <ReadinessScoreCard milestones={milestones} />
 
-      {/* Stats row */}
+      {/* Stats Cards Row */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 32 }}>
-        {stats.map((stat, i) => (
-          <StatsCard key={i} {...stat} />
+        {stats.map((s, i) => (
+          <StatsCard key={i} label={s.label} value={s.value} icon={s.icon} color={s.color} />
         ))}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
-        {/* Left: progress overview */}
-        <div className="card-dark">
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
-            <h2 className="heading-sm" style={{ color: "var(--color-on-dark)" }}>Progress Suksesi</h2>
-            <Link href="/milestones"
-              style={{ display: "flex", alignItems: "center", gap: 4, color: "var(--color-primary-bright)", fontSize: 13, fontWeight: 600, textDecoration: "none" }}>
-              Lihat Detail <ArrowRight size={14} />
-            </Link>
+      {/* Main Grid: 2 Columns */}
+      <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 24 }}>
+        {/* Left Side */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          {/* Category Breakdown */}
+          <div className="card-dark" style={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 24 }}>
+            <h2 className="heading-sm" style={{ color: "#0f172a", marginBottom: 16, fontSize: 16, fontWeight: 700 }}>
+              Kemajuan per Dimensi Suksesi
+            </h2>
+            <CategoryBreakdown milestones={milestones} />
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 28 }}>
-            <div style={{ position: "relative", flexShrink: 0 }}>
-              <ProgressRing percentage={percentage} size={96} />
-              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontFamily: "var(--font-display)", fontSize: 20, fontWeight: 700, color: "var(--color-on-dark)" }}>
-                  {percentage}%
-                </span>
-              </div>
-            </div>
-            <div>
-              <div className="heading-md" style={{ color: "var(--color-on-dark)", marginBottom: 4 }}>
-                {completed} / {total}
-              </div>
-              <div className="body-sm" style={{ color: "var(--color-on-dark-mute)" }}>Milestone selesai</div>
-              {percentage >= 80 && (
-                <span className="badge-success" style={{ marginTop: 8, display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12 }}>
-                  <Target size={14} weight="bold" />
-                  <span>Hampir selesai!</span>
-                </span>
-              )}
-            </div>
-          </div>
-
-          <CategoryBreakdown milestones={milestones} />
+          {/* AI Advisor Banner */}
+          <AdvisorCTA businessName={business.name} role={profile.role} />
         </div>
 
-        {/* Right: advisor + upcoming + team */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <AdvisorCTA />
+        {/* Right Side */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          {/* Invite Code */}
+          <InviteBanner inviteCode={business.invite_code} role={profile.role} />
 
-          <div className="card-dark">
-            <h3 className="heading-sm" style={{ color: "var(--color-on-dark)", marginBottom: 16 }}>
-              Milestone Berikutnya
-            </h3>
+          {/* Upcoming Milestones */}
+          <div className="card-dark" style={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 24 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+              <h2 className="heading-sm" style={{ color: "#0f172a", fontSize: 16, fontWeight: 700 }}>
+                Milestones Berikutnya
+              </h2>
+              <Link href="/milestones" style={{ fontSize: 12, color: "#4f46e5", textDecoration: "none", fontWeight: 600 }}>
+                Lihat Semua
+              </Link>
+            </div>
             <UpcomingMilestones milestones={milestones} />
           </div>
 
-          <TeamMembers members={members} />
+          {/* Team Members */}
+          <div className="card-dark" style={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 24 }}>
+            <h2 className="heading-sm" style={{ color: "#0f172a", marginBottom: 16, fontSize: 16, fontWeight: 700 }}>
+              Tim Suksesi Bisnis
+            </h2>
+            <TeamMembers members={members} />
+          </div>
         </div>
       </div>
-
-      {/* Invite banner — Pendiri only */}
-      {profile.role === "pendiri" && business.invite_code && (
-        <InviteBanner business={business} />
-      )}
     </div>
   );
 }
