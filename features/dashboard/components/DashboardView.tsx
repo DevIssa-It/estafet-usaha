@@ -9,6 +9,7 @@ import { AdvisorCTA } from "./AdvisorCTA";
 import { UpcomingMilestones } from "./UpcomingMilestones";
 import { TeamMembers } from "./TeamMembers";
 import { InviteBanner } from "./InviteBanner";
+import { NotaryStatusBanner } from "./NotaryStatusBanner";
 import { ReadinessScoreCard } from "./ReadinessScoreCard";
 
 interface DashboardViewProps {
@@ -118,8 +119,12 @@ export function DashboardView({
 
         {/* Right Side */}
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          {/* Invite Code */}
-          <InviteBanner inviteCode={business?.invite_code || "ESTAFET"} role={profile?.role} />
+          {/* Invite Code / Notary Status Banner */}
+          {profile?.role === "notaris" ? (
+            <NotaryStatusBanner businessName={business?.name} />
+          ) : (
+            <InviteBanner inviteCode={business?.invite_code || "ESTAFET"} role={profile?.role} />
+          )}
 
           {/* Upcoming Milestones */}
           <div className="card-dark" style={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 24 }}>
