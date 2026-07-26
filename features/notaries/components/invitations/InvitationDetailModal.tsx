@@ -1,7 +1,10 @@
 "use client";
 
-import { X, Check, Buildings, User, Calendar, FileText } from "@phosphor-icons/react";
+import { Check } from "@phosphor-icons/react";
 import { ClientInvitation } from "./InvitationCard";
+import { InvitationDetailHeader } from "./InvitationDetailHeader";
+import { InvitationClientProfileCard } from "./InvitationClientProfileCard";
+import { InvitationLegalChecklistCard } from "./InvitationLegalChecklistCard";
 
 interface InvitationDetailModalProps {
   invitation: ClientInvitation | null;
@@ -21,42 +24,13 @@ export function InvitationDetailModal({ invitation, onClose, onAccept, onReject 
     }}>
       <div style={{
         backgroundColor: "#ffffff", border: "1px solid #cbd5e1",
-        borderRadius: 16, width: "100%", maxWidth: 500, padding: 28,
+        borderRadius: 16, width: "100%", maxWidth: 520, padding: 28,
         boxShadow: "0 20px 25px -5px rgba(0,0,0,0.1)",
+        maxHeight: "90vh", overflowY: "auto",
       }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-          <div style={{ fontSize: 16, fontWeight: 700, color: "#0f172a", display: "flex", alignItems: "center", gap: 8 }}>
-            <Buildings size={22} color="#4f46e5" weight="fill" /> Tinjauan Profil Klien Usaha
-          </div>
-          <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: "#64748b" }}>
-            <X size={20} />
-          </button>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 14, backgroundColor: "#f8fafc", padding: 16, borderRadius: 12, border: "1px solid #e2e8f0", marginBottom: 20 }}>
-          <div>
-            <div style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>{invitation.businessName}</div>
-            <div style={{ fontSize: 12, color: "#4f46e5", fontWeight: 600 }}>{invitation.industry}</div>
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 13, color: "#334155" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <User size={16} color="#64748b" /> Pendiri: <strong>{invitation.ownerName}</strong>
-            </span>
-            <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <Calendar size={16} color="#64748b" /> Berdiri: <strong>{invitation.foundedYear}</strong>
-            </span>
-          </div>
-
-          <div style={{ borderTop: "1px solid #e2e8f0", paddingTop: 10 }}>
-            <div style={{ fontSize: 12, fontWeight: 600, color: "#64748b", marginBottom: 4, display: "flex", alignItems: "center", gap: 4 }}>
-              <FileText size={14} /> Deskripsi Usaha:
-            </div>
-            <div style={{ fontSize: 13, color: "#0f172a", lineHeight: 1.5 }}>
-              {invitation.description || "Bisnis keluarga bergerak di bidang " + invitation.industry + " sedang mempersiapkan pendokumentasian legalitas suksesi."}
-            </div>
-          </div>
-        </div>
+        <InvitationDetailHeader onClose={onClose} />
+        <InvitationClientProfileCard invitation={invitation} />
+        <InvitationLegalChecklistCard />
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 10 }}>
           <button
