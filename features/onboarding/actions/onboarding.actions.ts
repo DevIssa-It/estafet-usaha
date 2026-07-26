@@ -84,7 +84,7 @@ export async function joinBusiness(inviteCode: string) {
   const { error: memberErr } = await supabase.from("business_members").upsert({
     business_id: business.id,
     user_id: user.id,
-    role: "penerus",
+    role: role,
   }, { onConflict: "business_id,user_id" });
 
   if (memberErr) console.warn("Member insert notice:", memberErr.message);
