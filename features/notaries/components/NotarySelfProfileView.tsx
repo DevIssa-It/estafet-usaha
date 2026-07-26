@@ -15,12 +15,12 @@ interface NotarySelfProfileViewProps {
 export function NotarySelfProfileView({ profile }: NotarySelfProfileViewProps) {
   const [activeTab, setActiveTab] = useState<"invitations" | "profile">("invitations");
   const [form, setForm] = useState({
-    name: profile.full_name || "Dewi Rahmawati, S.H., M.Kn.",
-    skNumber: "AHU-0019283.AH.02.01.2018",
-    iniNumber: "INI-JKT-8821",
-    city: "Jakarta Selatan",
-    address: "Jl. HR Rasuna Said Blok X-5 No. 12, Kuningan, Jakarta Selatan",
-    specializations: "Suksesi Bisnis Keluarga, Akta Hibah Saham & Aset, Family Charter Notariil, Pembaruan Akta PT/CV",
+    name: profile.full_name || "",
+    skNumber: (profile as any).sk_number || "",
+    iniNumber: (profile as any).ini_number || "",
+    city: (profile as any).city || "",
+    address: (profile as any).office_address || "",
+    specializations: (profile as any).specializations || "",
   });
 
   const [saved, setSaved] = useState(false);

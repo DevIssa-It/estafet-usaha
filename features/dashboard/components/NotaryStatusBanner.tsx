@@ -8,7 +8,7 @@ interface NotaryStatusBannerProps {
   businessId?: string;
 }
 
-export function NotaryStatusBanner({ businessName = "Toko Batik Santoso Nusantara", businessId = "b1" }: NotaryStatusBannerProps) {
+export function NotaryStatusBanner({ businessName = "Bisnis Klien", businessId = "" }: NotaryStatusBannerProps) {
   return (
     <div style={{
       backgroundColor: "#ffffff",

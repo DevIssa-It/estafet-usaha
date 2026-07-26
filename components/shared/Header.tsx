@@ -53,7 +53,7 @@ export function Header({ profile, businessName, business }: HeaderProps) {
 
         {isNotary && (
           <ClientBusinessSwitcher
-            currentBusiness={{ id: profile?.business_id || "b1", name: businessName || "Toko Batik Santoso Nusantara", industry: "Perusahaan Klien", invite_code: "ESTAFET", description: "", founded_year: null, owner_id: "", created_at: "" }}
+            currentBusiness={{ id: profile?.business_id || "", name: businessName || "Bisnis Klien", industry: "Perusahaan Klien", invite_code: "ESTAFET", description: "", founded_year: null, owner_id: "", created_at: "" }}
             isNotary={true}
           />
         )}

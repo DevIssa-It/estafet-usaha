@@ -88,6 +88,15 @@ create table if not exists public.vault_documents (
   created_at   timestamp with time zone default now()
 );
 
+-- TABLE: notary_invitations
+create table if not exists public.notary_invitations (
+  id           uuid default uuid_generate_v4() primary key,
+  business_id  uuid references public.businesses(id) on delete cascade not null,
+  notary_id    uuid references public.profiles(id) on delete cascade not null,
+  status       text not null default 'pending' check (status in ('pending', 'accepted', 'rejected')),
+  created_at   timestamp with time zone default now()
+);
+
 -- ──────────────────────────────────────────────────────────────
 -- 2. ROW LEVEL SECURITY (RLS) POLICIES
 -- ──────────────────────────────────────────────────────────────
@@ -98,16 +107,20 @@ alter table public.business_members enable row level security;
 alter table public.milestones enable row level security;
 alter table public.chat_messages enable row level security;
 alter table public.vault_documents enable row level security;
+alter table public.notary_invitations enable row level security;
 
 -- Drop existing policies if re-running script
+drop policy if exists "Users can view profiles" on public.profiles;
 drop policy if exists "Users can view own profile" on public.profiles;
 drop policy if exists "Users can update own profile" on public.profiles;
 drop policy if exists "Users can insert own profile" on public.profiles;
 
+drop policy if exists "Users can view businesses" on public.businesses;
 drop policy if exists "Users can view their business" on public.businesses;
 drop policy if exists "Pendiri can create business" on public.businesses;
 drop policy if exists "Pendiri can update their business" on public.businesses;
 
+drop policy if exists "Members can view business members" on public.business_members;
 drop policy if exists "Members can view their business members" on public.business_members;
 drop policy if exists "Users can join business" on public.business_members;
 
@@ -120,6 +133,10 @@ drop policy if exists "Members can insert chat messages" on public.chat_messages
 
 drop policy if exists "Members can view vault documents" on public.vault_documents;
 drop policy if exists "Members can insert vault documents" on public.vault_documents;
+
+drop policy if exists "Users can view notary invitations" on public.notary_invitations;
+drop policy if exists "Users can insert notary invitations" on public.notary_invitations;
+drop policy if exists "Users can update notary invitations" on public.notary_invitations;
 
 -- Create policies
 create policy "Users can view profiles" on public.profiles for select using (auth.role() = 'authenticated');
@@ -142,6 +159,10 @@ create policy "Members can insert chat messages" on public.chat_messages for ins
 
 create policy "Members can view vault documents" on public.vault_documents for select using (auth.role() = 'authenticated');
 create policy "Members can insert vault documents" on public.vault_documents for insert with check (uploaded_by = auth.uid());
+
+create policy "Users can view notary invitations" on public.notary_invitations for select using (auth.role() = 'authenticated');
+create policy "Users can insert notary invitations" on public.notary_invitations for insert with check (auth.role() = 'authenticated');
+create policy "Users can update notary invitations" on public.notary_invitations for update using (auth.role() = 'authenticated');
 
 -- ──────────────────────────────────────────────────────────────
 -- 3. INDEXES

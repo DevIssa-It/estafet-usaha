@@ -5,29 +5,12 @@ import { EnvelopeSimple, Check } from "@phosphor-icons/react";
 import { InvitationCard, ClientInvitation } from "./InvitationCard";
 import { InvitationDetailModal } from "./InvitationDetailModal";
 
-const INITIAL_INVITATIONS: ClientInvitation[] = [
-  {
-    id: "inv-1",
-    businessName: "Resto Rasa Nusantara",
-    industry: "Kuliner / F&B",
-    ownerName: "H. Hendro Utomo",
-    foundedYear: 2012,
-    description: "Usaha kuliner keluarga dengan 5 cabang di Yogyakarta dan Jawa Tengah. Membutuhkan pendampingan Notaris untuk penyusunan Akta Hibah Saham & Akta Pendirian Holding.",
-    invitedAt: "2 jam yang lalu",
-  },
-  {
-    id: "inv-2",
-    businessName: "Fashion Hijab House",
-    industry: "Perdagangan / Retail",
-    ownerName: "Hj. Siti Rahmawati",
-    foundedYear: 2018,
-    description: "Produsen busana muslimah berbasis di Bandungan. Membutuhkan verifikasi Family Charter notariil & pembaruan Akta PT.",
-    invitedAt: "1 hari yang lalu",
-  },
-];
+interface IncomingInvitationsListProps {
+  initialInvitations?: ClientInvitation[];
+}
 
-export function IncomingInvitationsList() {
-  const [invitations, setInvitations] = useState<ClientInvitation[]>(INITIAL_INVITATIONS);
+export function IncomingInvitationsList({ initialInvitations = [] }: IncomingInvitationsListProps) {
+  const [invitations, setInvitations] = useState<ClientInvitation[]>(initialInvitations);
   const [selectedInv, setSelectedInv] = useState<ClientInvitation | null>(null);
   const [toastMessage, setToastMessage] = useState("");
 

@@ -88,7 +88,7 @@ BEGIN
     'authenticated','authenticated','dewi@contoh.com',
     extensions.crypt('password123', extensions.gen_salt('bf')), now(),
     '{"provider":"email","providers":["email"]}',
-    '{"full_name":"Dewi Rahmawati, S.H., M.Kn.","role":"penerus"}',
+    '{"full_name":"Dewi Rahmawati, S.H., M.Kn.","role":"notaris"}',
     now(), now(), '','','',''
   );
   INSERT INTO auth.identities (id, user_id, identity_data, provider, provider_id, last_sign_in_at, created_at, updated_at)
