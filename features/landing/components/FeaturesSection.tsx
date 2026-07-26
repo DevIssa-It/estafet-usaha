@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   ChartLineUp,
   Brain,
@@ -55,7 +56,14 @@ export function FeaturesSection() {
   return (
     <section id="fitur" className="section-dark" style={{ padding: "88px 0", backgroundColor: "#f8fafc" }}>
       <div className="container-content">
-        <div className="text-center" style={{ marginBottom: 56 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+          style={{ marginBottom: 56 }}
+        >
           <span style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.2, color: "#4f46e5" }}>
             6 MODUL FITUR TERINTEGRASI
           </span>
@@ -65,14 +73,27 @@ export function FeaturesSection() {
           <p className="body-md text-mute" style={{ maxWidth: 580, margin: "12px auto 0", color: "#475569" }}>
             Dirancang khusus untuk realitas bisnis keluarga UMKM Indonesia dengan pendekatan terstruktur 4 pilar dan asistensi AI.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 6 Feature Modules Grid — Harmonized Revolut Light Theme */}
+        {/* 6 Feature Modules Grid — Framer Motion Staggered Reveal */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24, marginBottom: 56 }}>
           {features.map((f, index) => {
             const Icon = f.icon;
             return (
-              <div key={index} className="card-dark" style={{ display: "flex", flexDirection: "column", gap: 16, padding: 28, borderRadius: 16, border: "1px solid #e2e8f0", backgroundColor: "#ffffff", boxShadow: "0 2px 8px rgba(15, 23, 42, 0.03)" }}>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ y: -6, boxShadow: "0 12px 28px rgba(15, 23, 42, 0.08)" }}
+                className="card-dark"
+                style={{
+                  display: "flex", flexDirection: "column", gap: 16, padding: 28,
+                  borderRadius: 16, border: "1px solid #e2e8f0", backgroundColor: "#ffffff",
+                  boxShadow: "0 2px 8px rgba(15, 23, 42, 0.03)", transition: "border-color 0.2s",
+                }}
+              >
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <div style={{
                     width: 48, height: 48, borderRadius: 12,
@@ -86,23 +107,29 @@ export function FeaturesSection() {
                 </div>
                 <h3 style={{ fontSize: 18, fontWeight: 600, color: "#0f172a" }}>{f.title}</h3>
                 <p className="body-sm text-mute" style={{ color: "#475569", lineHeight: 1.6, fontSize: 14 }}>{f.desc}</p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
-        {/* Highlight Banner: Literasi Finansial — Harmonized Revolut Soft Indigo */}
-        <div style={{
-          backgroundColor: "#e0e7ff",
-          border: "1px solid #c7d2fe",
-          borderRadius: 20,
-          padding: "36px 40px",
-          display: "flex",
-          alignItems: "center",
-          justify: "space-between",
-          flexWrap: "wrap",
-          gap: 24,
-        }}>
+        {/* Highlight Banner: Literasi Finansial — Framer Motion Reveal */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6 }}
+          style={{
+            backgroundColor: "#e0e7ff",
+            border: "1px solid #c7d2fe",
+            borderRadius: 20,
+            padding: "36px 40px",
+            display: "flex",
+            alignItems: "center",
+            justify: "space-between",
+            flexWrap: "wrap",
+            gap: 24,
+          }}
+        >
           <div style={{ maxWidth: 640 }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 700, color: "#4338ca", textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 8 }}>
               <CheckCircle size={16} color="#4f46e5" weight="fill" /> Fokus Utama Tema Hackathon: Literasi Finansial
@@ -115,14 +142,16 @@ export function FeaturesSection() {
             </p>
           </div>
 
-          <Link
-            href="/auth?mode=register"
-            className="btn btn-cobalt"
-            style={{ padding: "12px 24px", fontSize: 14, fontWeight: 600, gap: 8, height: 44 }}
-          >
-            Coba Financial Simulator <ArrowRight size={16} weight="bold" />
-          </Link>
-        </div>
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/auth?mode=register"
+              className="btn btn-cobalt"
+              style={{ padding: "12px 24px", fontSize: 14, fontWeight: 600, gap: 8, height: 44 }}
+            >
+              Coba Financial Simulator <ArrowRight size={16} weight="bold" />
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

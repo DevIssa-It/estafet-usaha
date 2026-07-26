@@ -1,12 +1,20 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Buildings, HandHeart, CheckCircle } from "@phosphor-icons/react";
 
 export function RolesSection() {
   return (
     <section id="peran" className="section-dark" style={{ padding: "88px 0", backgroundColor: "#f8fafc" }}>
       <div className="container-content">
-        <div className="text-center" style={{ marginBottom: 56 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+          style={{ marginBottom: 56 }}
+        >
           <span style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.2, color: "#4f46e5" }}>
             DUA PERAN, SATU TUJUAN
           </span>
@@ -16,11 +24,19 @@ export function RolesSection() {
           <p className="body-md" style={{ color: "#475569", marginTop: 8 }}>
             Setiap peran memiliki kebutuhan berbeda dalam proses suksesi bisnis.
           </p>
-        </div>
+        </motion.div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 32 }}>
           {/* Pendiri */}
-          <div className="card-dark" style={{ borderTop: "4px solid #4f46e5", padding: 32, borderRadius: 16, borderLeft: "1px solid #e2e8f0", borderRight: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0", backgroundColor: "#ffffff", boxShadow: "0 2px 8px rgba(15, 23, 42, 0.03)" }}>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            whileHover={{ y: -4 }}
+            className="card-dark"
+            style={{ borderTop: "4px solid #4f46e5", padding: 32, borderRadius: 16, borderLeft: "1px solid #e2e8f0", borderRight: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0", backgroundColor: "#ffffff", boxShadow: "0 2px 8px rgba(15, 23, 42, 0.03)" }}
+          >
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
               <div style={{ width: 44, height: 44, borderRadius: 12, backgroundColor: "rgba(79, 70, 229, 0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Buildings size={24} color="#4f46e5" weight="duotone" />
@@ -43,10 +59,18 @@ export function RolesSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Penerus */}
-          <div className="card-dark" style={{ borderTop: "4px solid #6366f1", padding: 32, borderRadius: 16, borderLeft: "1px solid #e2e8f0", borderRight: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0", backgroundColor: "#ffffff", boxShadow: "0 2px 8px rgba(15, 23, 42, 0.03)" }}>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            whileHover={{ y: -4 }}
+            className="card-dark"
+            style={{ borderTop: "4px solid #6366f1", padding: 32, borderRadius: 16, borderLeft: "1px solid #e2e8f0", borderRight: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0", backgroundColor: "#ffffff", boxShadow: "0 2px 8px rgba(15, 23, 42, 0.03)" }}
+          >
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
               <div style={{ width: 44, height: 44, borderRadius: 12, backgroundColor: "rgba(99, 102, 241, 0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <HandHeart size={24} color="#6366f1" weight="duotone" />
@@ -69,7 +93,7 @@ export function RolesSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
