@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Business } from "@/types";
 import { SwitcherTriggerButton } from "./switcher/SwitcherTriggerButton";
 import { SwitcherDropdownList } from "./switcher/SwitcherDropdownList";
+import { JoinClientModal } from "./switcher/JoinClientModal";
 
 interface ClientBusinessSwitcherProps {
   currentBusiness: Business;
@@ -13,12 +14,10 @@ interface ClientBusinessSwitcherProps {
 
 export function ClientBusinessSwitcher({ currentBusiness, clientBusinesses = [], isNotary = false }: ClientBusinessSwitcherProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const businessesList = clientBusinesses.length > 0 ? clientBusinesses : [
-    currentBusiness,
-    { id: "demo-client-2", name: "Resto Rasa Nusantara", industry: "Kuliner / F&B", invite_code: "NUSA12", description: "", founded_year: 2012, owner_id: "demo", created_at: "" },
-    { id: "demo-client-3", name: "Fashion Hijab House", industry: "Perdagangan / Retail", invite_code: "HIJAB99", description: "", founded_year: 2018, owner_id: "demo", created_at: "" },
-  ];
+  // Strictly use real database businesses list; if empty fallback to current single business
+  const businessesList = clientBusinesses.length > 0 ? clientBusinesses : [currentBusiness];
 
   return (
     <div style={{ position: "relative" }}>
@@ -35,8 +34,14 @@ export function ClientBusinessSwitcher({ currentBusiness, clientBusinesses = [],
           currentBusinessId={currentBusiness.id}
           isNotary={isNotary}
           onSelect={() => setIsOpen(false)}
+          onOpenModal={() => setIsModalOpen(true)}
         />
       )}
+
+      <JoinClientModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

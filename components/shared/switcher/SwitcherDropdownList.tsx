@@ -2,17 +2,17 @@
 
 import { Check, Plus } from "@phosphor-icons/react";
 import { Business } from "@/types";
-import Link from "next/link";
 
 interface SwitcherDropdownListProps {
   businessesList: Business[];
   currentBusinessId: string;
   isNotary: boolean;
   onSelect: () => void;
+  onOpenModal: () => void;
 }
 
 export function SwitcherDropdownList({
-  businessesList, currentBusinessId, isNotary, onSelect,
+  businessesList, currentBusinessId, isNotary, onSelect, onOpenModal,
 }: SwitcherDropdownListProps) {
   return (
     <div style={{
@@ -26,7 +26,7 @@ export function SwitcherDropdownList({
       padding: 8,
     }}>
       <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", padding: "6px 10px", letterSpacing: 0.5 }}>
-        {isNotary ? "Daftar Bisnis Klien Notaris (" + businessesList.length + ")" : "Bisnis Anda"}
+        {isNotary ? "Daftar Bisnis Klien (" + businessesList.length + ")" : "Bisnis Anda"}
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -51,7 +51,7 @@ export function SwitcherDropdownList({
             >
               <div>
                 <div>{b.name}</div>
-                <div style={{ fontSize: 11, color: isSelected ? "#4f46e5" : "#64748b" }}>{b.industry}</div>
+                <div style={{ fontSize: 11, color: isSelected ? "#4f46e5" : "#64748b" }}>{b.industry || "Bisnis Klien"}</div>
               </div>
               {isSelected && <Check size={16} color="#4f46e5" weight="bold" />}
             </button>
@@ -61,20 +61,21 @@ export function SwitcherDropdownList({
 
       {isNotary && (
         <div style={{ borderTop: "1px solid #e2e8f0", marginTop: 6, paddingTop: 6 }}>
-          <Link
-            href="/onboarding"
-            onClick={onSelect}
+          <button
+            type="button"
+            onClick={() => {
+              onSelect();
+              onOpenModal();
+            }}
             style={{
-              display: "flex", alignItems: "center", gap: 6,
-              padding: "8px 10px",
-              borderRadius: 8,
+              display: "flex", alignItems: "center", gap: 6, width: "100%",
+              padding: "8px 10px", borderRadius: 8, border: "none",
               fontSize: 12, fontWeight: 600, color: "#4f46e5",
-              textDecoration: "none",
-              backgroundColor: "#f8fafc",
+              cursor: "pointer", backgroundColor: "#f8fafc", textAlign: "left",
             }}
           >
             <Plus size={14} weight="bold" /> + Tambah Klien Baru via Kode
-          </Link>
+          </button>
         </div>
       )}
     </div>
