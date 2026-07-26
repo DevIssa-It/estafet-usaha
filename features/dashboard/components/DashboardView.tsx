@@ -66,7 +66,13 @@ export function DashboardView({
                 {business.name}
               </h1>
               <span className="badge-tag" style={{ fontSize: 12, backgroundColor: "#e0e7ff", color: "#4338ca", border: "1px solid #c7d2fe" }}>
-                {profile.role === "pendiri" ? "Generasi Pendiri" : "Generasi Penerus"}
+                {
+                  profile.role === "pendiri" ? "Generasi Pendiri" :
+                  profile.role === "notaris" ? "Notaris Partner" :
+                  profile.role === "advisor" ? "External Advisor" :
+                  profile.role === "calon_penerus" ? "Calon Penerus" :
+                  "Generasi Penerus"
+                }
               </span>
             </div>
             <p className="body-md" style={{ color: "#475569", marginTop: 4 }}>
