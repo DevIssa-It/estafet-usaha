@@ -21,7 +21,7 @@
 ## 🎯 RELEVANSI PROYEK DENGAN TEMA LITERASI FINANSIAL
 
 ### 💡 Mengapa Suksesi Bisnis Keluarga Sangat Erat dengan Literasi Finansial?
-Berdasarkan data OJK dan BRIN, salah satu penyebab terbesar kebangkrutan 70% UMKM keluarga di generasi kedua adalah **rendahnya literasi finansial dalam mengelola keuangan bisnis vs keuangan keluarga**. Kebanyakan pengusaha UMKM tidak tahu cara menghitung valuasi bisnis secara objektif, buta terhadap implikasi pajak pengalihan aset, serta tidak memiliki perencanaan alokasi modal ditahan (*retained earnings*).
+Berdasarkan riset **PwC Global Family Business Survey 2025** dan **Daya Qarsa (2022)**, salah satu penyebab terbesar kebangkrutan 70% bisnis keluarga di generasi kedua adalah **rendahnya literasi finansial dalam mengelola keuangan bisnis vs keuangan keluarga**. Kebanyakan pengusaha UMKM tidak tahu cara menghitung valuasi bisnis secara objektif, buta terhadap implikasi pajak pengalihan aset (PPh pengalihan saham 2,5% & BPHTB 5%), serta tidak memiliki perencanaan alokasi modal ditahan (*retained earnings*).
 
 ### 🔗 Peta Relevansi Fitur Estafet Usaha dengan Tema Literasi Finansial:
 
@@ -38,10 +38,13 @@ Berdasarkan data OJK dan BRIN, salah satu penyebab terbesar kebangkrutan 70% UMK
 
 ## 📌 Latar Belakang & Rumusan Masalah (20% Bobot Penilaian)
 
-Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UMKM) berbasis keluarga** (sekitar 4,5 juta unit usaha). Namun, data menunjukkan realitas yang memprihatinkan:
-- ❌ **70% bisnis keluarga gagal bertahan** di Generasi Kedua.
-- ❌ **85% tidak memiliki perencanaan suksesi** atau dokumen legal tertulis.
-- 📉 Mitos klasik: *"Generasi Pertama Membangun, Generasi Kedua Menikmati, Generasi Ketiga Menghancurkan"*.
+Menurut data **Bursa Efek Indonesia (BEI)** dan **PwC**, sekitar **95% perusahaan di Indonesia adalah bisnis keluarga** yang berkontribusi **80% terhadap PDB nasional** dan menyerap **96% tenaga kerja**. Dari total **30,21 juta unit usaha UMKM** yang terdaftar di Indonesia (Kementerian UMKM RI SIDT-UMKM, 2025), mayoritas bergantung pada kepemimpinan keluarga.
+
+Namun, riset menunjukkan ancaman laten dalam transisi kepemimpinan:
+- ⚠️ **19% bisnis keluarga di Indonesia menunda suksesi** akibat ketidakpastian (hampir 2x lipat rata-rata global 10%, PwC 2025).
+- ⚠️ **43% generasi penerus mengalami resistensi** dari pemimpin senior/pendiri saat transisi kepemimpinan (PwC 2025).
+- ❌ **Hanya 30% bisnis keluarga yang bertahan ke Generasi Ke-2** dan **13% ke Generasi Ke-3** (Daya Qarsa 2022 & Jakarta Consulting Group).
+- 📉 Mitos klasik yang terbukti empiris: *"Generasi Pertama Membangun, Generasi Kedua Menikmati, Generasi Ketiga Menghancurkan"*.
 
 ### 🔍 Akar Masalah Multidimensi:
 1. **Rendahnya Literasi Finansial**: Ketiadaan gambaran objektif valuasi bisnis dan ketidaktahuan estimasi pajak hibah/pengalihan saham.
@@ -53,10 +56,12 @@ Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UM
 
 ## 📚 DAFTAR PUSTAKA & SUMBER DATA RISET (References)
 
-1. **PwC Indonesia Family Business Survey**: *Riset Kelangsungan Bisnis Keluarga Indonesia (70% kegagalan di Generasi Ke-2 & 85% ketiadaan suksesi tertulis)*.
-2. **Otoritas Jasa Keuangan (OJK)**: *Survei Nasional Literasi dan Inklusi Keuangan (SNLIK) & Panduan Manajemen Keuangan Keluarga Pengusaha*.
-3. **Kementerian Koperasi dan UKM RI & BRIN**: *Data Statistik UMKM Berbasis Keluarga & Kontribusi terhadap PDB Nasional*.
-4. **UU No. 40 Tahun 2007 (Perseroan Terbatas)** & **UU HPP No. 7 Tahun 2021**: *Aturan Hukum Tata Kelola Saham, Akta Hibah Notaris, & Pajak Transaksi Suksesi Aset Bisnis*.
+1. **PwC Global Family Business Survey 2025**: *Riset Kelangsungan Bisnis Keluarga Indonesia (19% menunda suksesi, 43% hambatan resistensi senior, & 95% struktur bisnis keluarga)*.
+2. **Bursa Efek Indonesia (BEI)**: *Data Kontribusi Bisnis Keluarga terhadap PDB Nasional (80%) dan Penyerapan Tenaga Kerja (96%)*.
+3. **Riset Daya Qarsa (2022) & Jakarta Consulting Group (Susanto, A.B., 2007)**: *Tingkat Keberlanjutan Transisi Generasi Bisnis Keluarga Indonesia (Hanya 30% bertahan di Generasi Ke-2 & 13% di Generasi Ke-3)*.
+4. **Kementerian UMKM RI (SIDT-UMKM, Des 2025)**: *Data Terverifikasi 30,21 Juta Unit Usaha UMKM Terdaftar di Indonesia*.
+5. **Otoritas Jasa Keuangan (OJK)**: *Survei Nasional Literasi dan Inklusi Keuangan (SNLIK) & Panduan Manajemen Keuangan Keluarga Pengusaha*.
+6. **UU No. 40 Tahun 2007 (Perseroan Terbatas)** & **UU HPP No. 7 Tahun 2021**: *Aturan Hukum Tata Kelola Saham, Akta Hibah Notaris, & Pajak Transaksi Suksesi Aset Bisnis*.
 
 ---
 
@@ -97,7 +102,7 @@ Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UM
 | Kriteria Penilaian | Bobot | Implementasi Teknis & Strategis |
 |---|---|---|
 | **Penguasaan Kompetensi Role (Hacker)** | **30%** | Full-stack MVP (Next.js 16 + Supabase Auth & RLS + Google Gemini AI LLM), Pipeline API utuh, Micro-component Architecture, & Git commit history per fitur. |
-| **Pemahaman Masalah** | **20%** | Solusi tepat sasaran mengatasi krisis 70% kegagalan suksesi 4,5 juta bisnis keluarga UMKM Indonesia pada pilar **Literasi Finansial** & **Legalitas**. |
+| **Pemahaman Masalah** | **20%** | Solusi tepat sasaran berbasis data terverifikasi (PwC 2025, BEI, Daya Qarsa 2022) pada pilar **Literasi Finansial** & **Legalitas**. |
 | **Kualitas & Kegunaan Output** | **20%** | 6 Modul fitur lengkap, UI/UX Revolut Light Design System, responsif, 100% tanpa error, dan tombol utility 1-click. |
 | **Orisinalitas Pendekatan** | **15%** | Platform terintegrasi 4 pilar suksesi pertama di Indonesia dengan AI Advisor personal dan kalkulator valuasi transisi suksesi. |
 | **Kejelasan Penyampaian** | **15%** | Dokumentasi lengkap di [`PRD.md`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/PRD.md), [`README.md`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/README.md), dan skrip SQL seeder terstruktur. |
@@ -145,7 +150,8 @@ estafet-usaha/
 │   └── gemini.ts                # Multi-model Gemini AI Fallback Engine
 ├── PRD.md                       # Official Product Requirements Document
 └── supabase/
-    └── schema.sql               # Production Database Schema & SQL Seeder
+    ├── schema.sql               # Production Database Schema
+    └── seed.sql                 # SQL Seeder Script
 ```
 
 ---
@@ -175,7 +181,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
 ### 3. Setup Database & Seeder Supabase
-Buka **Supabase Dashboard > SQL Editor**, lalu Copy & Run seluruh isi skrip SQL dari file [`supabase/schema.sql`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/supabase/schema.sql).
+Buka **Supabase Dashboard > SQL Editor**, lalu Copy & Run skrip dari file [`supabase/schema.sql`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/supabase/schema.sql) dan [`supabase/seed.sql`](file:///c:/Users/ahmad/Documents/Project/estafet-usaha/supabase/seed.sql).
 
 ### 4. Jalankan Dev Server
 ```bash
