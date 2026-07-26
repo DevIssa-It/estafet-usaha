@@ -3,10 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { ArrowRight, List, X } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 
 export function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -24,6 +23,7 @@ export function Navbar() {
       }}
     >
       <div className="container-content" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+        {/* Brand Logo & Name */}
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Image
             src="/logo.png"
@@ -32,50 +32,42 @@ export function Navbar() {
             height={32}
             style={{ borderRadius: "var(--rounded-md)", objectFit: "cover" }}
           />
-          <span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 18, color: "var(--color-on-dark)" }}>
+          <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18, color: "#0f172a", letterSpacing: "-0.3px" }}>
             Estafet Usaha
           </span>
         </Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="hidden-mobile">
-          <a href="#fitur" style={{ color: "var(--color-on-dark-mute)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+        {/* Center Navigation Links */}
+        <div style={{ display: "flex", alignItems: "center", gap: 28 }} className="hidden-mobile">
+          <a href="#fitur" style={{ color: "#475569", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
             Fitur
           </a>
-          <a href="#cara-kerja" style={{ color: "var(--color-on-dark-mute)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+          <a href="#cara-kerja" style={{ color: "#475569", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
             Cara Kerja
           </a>
-          <a href="#peran" style={{ color: "var(--color-on-dark-mute)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+          <a href="#peran" style={{ color: "#475569", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
             Peran Suksesi
           </a>
-          <Link href="/auth" className="btn btn-outline-dark" style={{ padding: "8px 16px", fontSize: 13 }}>
+        </div>
+
+        {/* Distinct Action Buttons: Masuk (Login) & Daftar (Register) */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <Link
+            href="/auth"
+            className="btn btn-outline-dark"
+            style={{ padding: "8px 18px", fontSize: 13, height: 38, fontWeight: 600 }}
+          >
             Masuk
           </Link>
-          <Link href="/auth?mode=register" className="btn btn-cobalt" style={{ padding: "8px 16px", fontSize: 13, gap: 6 }}>
-            Mulai Sekarang <ArrowRight size={14} />
+          <Link
+            href="/auth?mode=register"
+            className="btn btn-cobalt"
+            style={{ padding: "8px 18px", fontSize: 13, height: 38, gap: 6, fontWeight: 600 }}
+          >
+            Daftar Bisnis <ArrowRight size={14} weight="bold" />
           </Link>
         </div>
-
-        <button
-          className="btn-ghost hidden-desktop"
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{ padding: 8, color: "var(--color-on-dark)" }}
-        >
-          {menuOpen ? <X size={24} /> : <List size={24} />}
-        </button>
       </div>
-
-      {menuOpen && (
-        <div style={{
-          backgroundColor: "var(--color-surface-card)",
-          borderBottom: "1px solid var(--color-hairline-dark)",
-          padding: 24, display: "flex", flexDirection: "column", gap: 16,
-        }}>
-          <a href="#fitur" onClick={() => setMenuOpen(false)} style={{ color: "var(--color-on-dark)", textDecoration: "none" }}>Fitur</a>
-          <a href="#cara-kerja" onClick={() => setMenuOpen(false)} style={{ color: "var(--color-on-dark)", textDecoration: "none" }}>Cara Kerja</a>
-          <a href="#peran" onClick={() => setMenuOpen(false)} style={{ color: "var(--color-on-dark)", textDecoration: "none" }}>Peran Suksesi</a>
-          <Link href="/auth" className="btn btn-cobalt" style={{ textAlign: "center" }}>Mulai Sekarang</Link>
-        </div>
-      )}
     </nav>
   );
 }
