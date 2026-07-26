@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { getUserProfile } from "@/lib/supabase/getProfile";
+import { getProfileAndBusiness } from "@/lib/supabase/getProfileAndBusiness";
 import { LearningHubView } from "@/features/learn/components/LearningHubView";
 
 export const metadata = {
@@ -12,11 +12,7 @@ export default async function LearnPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/auth");
 
-  const profile = await getUserProfile(supabase, user.id);
-
-  if (!profile?.business_id) redirect("/onboarding");
-
-  const business = (profile as any).businesses;
+  const { profile, business } = await getProfileAndBusiness(supabase, user.id);
 
   return (
     <LearningHubView

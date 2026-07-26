@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { getUserProfile } from "@/lib/supabase/getProfile";
+import { getProfileAndBusiness } from "@/lib/supabase/getProfileAndBusiness";
 import { redirect } from "next/navigation";
 import { AdvisorView } from "@/features/advisor/components/AdvisorView";
 
@@ -10,11 +10,8 @@ export default async function AdvisorPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/auth");
 
-  const profile = await getUserProfile(supabase, user.id);
+  const { profile, business } = await getProfileAndBusiness(supabase, user.id);
 
-  if (!profile?.business_id) redirect("/onboarding");
-
-  // Load last 20 messages for context
   const { data: history } = await supabase
     .from("chat_messages")
     .select("*")
@@ -25,7 +22,7 @@ export default async function AdvisorPage() {
   return (
     <AdvisorView
       profile={profile}
-      businessName={(profile as any).businesses?.name || ""}
+      businessName={business?.name || "Bisnis Anda"}
       initialHistory={history || []}
     />
   );
