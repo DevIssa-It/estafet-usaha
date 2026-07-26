@@ -9,6 +9,14 @@
 
 ---
 
+## 🎯 TEMA & KATEGORI HACKATHON
+
+- **Tema Utama**: **Inovasi Teknologi Digital untuk Keberlanjutan, Tata Kelola, & Daya Saing UMKM Indonesia**
+- **Sub-Tema / Track**: *Business Governance, FinTech & LegalTech for Family Enterprise Continuity*
+- **Fokus Solusi**: Transformasi digital dalam memecahkan masalah krisis transisi kepemimpinan & regenerasi bisnis keluarga (*Family Business Succession Crisis*).
+
+---
+
 ## 📌 Latar Belakang & Masalah (Problem Statement)
 
 Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UMKM) berbasis keluarga**. Namun, data menunjukkan realitas yang memprihatinkan:
@@ -61,7 +69,8 @@ Lebih dari **80% bisnis di Indonesia adalah Usaha Mikro, Kecil, dan Menengah (UM
 
 | Kriteria Penilaian | Implementasi di Estafet Usaha |
 |---|---|
-| **Impact & Relevansi Tema** | Menyelesaikan masalah krusial 80%+ UMKM keluarga di Indonesia untuk mencegah kebangkrutan antargenerasi. |
+| **Kesesuaian Tema** | 100% selaras dengan tema keberlanjutan UMKM & tata kelola bisnis keluarga di Indonesia. |
+| **Dampak (Impact)** | Menyelesaikan masalah krusial 80%+ UMKM keluarga di Indonesia untuk mencegah kebangkrutan antargenerasi. |
 | **Inovasi Teknologi** | Menggabungkan **Next.js 16 App Router**, **Supabase Auth & RLS**, serta **Google Gemini AI LLM** dengan sistem Multi-Model Auto-Fallback. |
 | **Desain & Aesthetics** | Mengadopsi **Revolut Light Design System** (Light Slate Canvas `#f8fafc`, Obsidian Dark Sidebar `#0d1117`, Cobalt/Indigo Accent `#4f46e5`, High Contrast Typography). |
 | **Kualitas Kode & Arsitektur** | Menggunakan **Micro-Component Architecture** (komponen terpisah yang modular, reusable, ter-refactor bersih tanpa file monolithic). |
