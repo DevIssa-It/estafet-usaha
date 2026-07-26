@@ -1,27 +1,24 @@
 "use client";
 
 const stats = [
-  { value: "70%", label: "Bisnis Keluarga Gagal di Gen 2", note: "Tanpa perencanaan suksesi" },
-  { value: "12", label: "Milestone Terstruktur", note: "Cover 4 Dimensi Utama" },
-  { value: "24/7", label: "AI Advisor Personal", note: "Pendampingan Real-time" },
-  { value: "100%", label: "Privasi & Terenkripsi", note: "Row Level Security Supabase" },
+  { value: "4,5 juta", label: "UMKM keluarga di Indonesia" },
+  { value: "70%", label: "Gagal bertahan di generasi ke-2" },
+  { value: "85%", label: "Tidak punya rencana suksesi tertulis" },
+  { value: "12 tahun", label: "Rata-rata waktu ideal proses suksesi" },
 ];
 
 export function StatsSection() {
   return (
-    <section style={{ borderTop: "1px solid var(--color-hairline-dark)", borderBottom: "1px solid var(--color-hairline-dark)", padding: "48px 0", backgroundColor: "var(--color-surface-card)" }}>
+    <section style={{ padding: "60px 0", borderTop: "1px solid var(--color-hairline-dark)", borderBottom: "1px solid var(--color-hairline-dark)", backgroundColor: "var(--color-surface-card)" }}>
       <div className="container-content">
-        <div className="grid-responsive grid-4">
-          {stats.map((s, index) => (
-            <div key={index} className="text-center">
-              <div className="display-lg" style={{ color: "var(--color-primary-bright)", marginBottom: 4 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 32, textAlign: "center" }}>
+          {stats.map((s, i) => (
+            <div key={i}>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: 38, fontWeight: 700, color: "var(--color-primary-bright)", marginBottom: 6 }}>
                 {s.value}
               </div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: "var(--color-on-dark)", marginBottom: 2 }}>
+              <div style={{ fontSize: 14, color: "var(--color-stone)", lineHeight: 1.4 }}>
                 {s.label}
-              </div>
-              <div style={{ fontSize: 12, color: "var(--color-stone)" }}>
-                {s.note}
               </div>
             </div>
           ))}

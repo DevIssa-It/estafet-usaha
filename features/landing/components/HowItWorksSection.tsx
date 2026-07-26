@@ -42,7 +42,7 @@ export function HowItWorksSection() {
           </h2>
         </div>
 
-        <div className="grid-responsive grid-4">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
           {steps.map((s, index) => {
             const Icon = s.icon;
             return (

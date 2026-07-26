@@ -31,7 +31,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="fitur" className="section-dark">
+    <section id="fitur" className="section-dark" style={{ padding: "88px 0" }}>
       <div className="container-content">
         <div className="text-center" style={{ marginBottom: 56 }}>
           <span style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.2, color: "var(--color-primary-bright)" }}>
@@ -45,11 +45,11 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid-responsive grid-4">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
           {features.map((f, index) => {
             const Icon = f.icon;
             return (
-              <div key={index} className="card-dark" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <div key={index} className="card-dark" style={{ display: "flex", flexDirection: "column", gap: 16, padding: 28, borderRadius: "var(--rounded-lg)" }}>
                 <div style={{
                   width: 48, height: 48, borderRadius: "var(--rounded-md)",
                   backgroundColor: `${f.color}20`, display: "flex", alignItems: "center", justifyContent: "center"
@@ -57,7 +57,7 @@ export function FeaturesSection() {
                   <Icon size={24} color={f.color} weight="duotone" />
                 </div>
                 <h3 style={{ fontSize: 18, fontWeight: 600, color: "var(--color-on-dark)" }}>{f.title}</h3>
-                <p className="body-sm text-mute" style={{ color: "var(--color-stone)" }}>{f.desc}</p>
+                <p className="body-sm text-mute" style={{ color: "var(--color-stone)", lineHeight: 1.6 }}>{f.desc}</p>
               </div>
             );
           })}
