@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { ArrowClockwise, CheckSquare } from "@phosphor-icons/react";
+import { ArrowClockwise, CheckSquare, ShieldCheck } from "@phosphor-icons/react";
 import { Milestone, Profile, MilestoneCategory, MilestoneStatus } from "@/types";
 import { updateMilestoneStatus } from "@/features/milestones/actions/milestones.actions";
 import { useRouter } from "next/navigation";
@@ -65,6 +65,24 @@ export function MilestonesView({ profile, milestones }: MilestonesViewProps) {
         </div>
       )}
 
+      {/* Access Permission Control Banner */}
+      <div style={{
+        backgroundColor: "var(--color-surface-soft)",
+        border: "1px solid var(--color-hairline-dark)",
+        borderRadius: 12,
+        padding: "12px 16px",
+        marginBottom: 20,
+        display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "var(--color-ink)", fontWeight: 600 }}>
+          <ShieldCheck size={18} color="var(--color-primary)" weight="fill" />
+          Hak Akses Pengaturan: {profile.role === "pendiri" ? "Pendiri (Kontrol Penuh All Milestone)" : profile.role === "notaris" ? "Notaris Partner (Verifikasi Milestone Legalitas)" : "Penerus (Milestone Operasional & Relasional)"}
+        </div>
+        <div style={{ fontSize: 12, color: "var(--color-stone)" }}>
+          {profile.role === "pendiri" ? "Anda dapat mengubah seluruh status milestone." : profile.role === "notaris" ? "Wewenang khusus milestone legal & hukum." : "Wewenang khusus milestone operasional & relasi."}
+        </div>
+      </div>
+
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {filtered.length === 0 ? (
           <div style={{ textAlign: "center", padding: "48px 0", color: "var(--color-stone)" }}>
@@ -72,9 +90,17 @@ export function MilestonesView({ profile, milestones }: MilestonesViewProps) {
             <p className="body-md">Tidak ada milestone yang cocok dengan filter.</p>
           </div>
         ) : (
-          filtered.map((m) => (
-            <MilestoneCard key={m.id} milestone={m} canEdit={true} onStatusChange={handleStatusChange} />
-          ))
+          filtered.map((m) => {
+            // Compute role-based edit permissions
+            const isFounder = profile.role === "pendiri";
+            const isNotary = profile.role === "notaris" && m.category === "legal";
+            const isSuccessor = profile.role === "penerus" && (m.category === "operational" || m.category === "relational");
+            const canEditMilestone = isFounder || isNotary || isSuccessor;
+
+            return (
+              <MilestoneCard key={m.id} milestone={m} canEdit={canEditMilestone} onStatusChange={handleStatusChange} />
+            );
+          })
         )}
       </div>
 
