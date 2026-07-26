@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { CheckCircle, Users, Trophy, Fire, ArrowRight, Target } from "@phosphor-icons/react";
+import { CheckCircle, Users, Trophy, Fire, ArrowRight } from "@phosphor-icons/react";
 import { Profile, Business, Milestone } from "@/types";
-import { ProgressRing } from "./ProgressRing";
 import { StatsCard } from "./StatsCard";
 import { CategoryBreakdown } from "./CategoryBreakdown";
 import { AdvisorCTA } from "./AdvisorCTA";
@@ -43,7 +42,7 @@ export function DashboardView({
         marginBottom: 24,
         display: "flex",
         alignItems: "center",
-        justify: "space-between",
+        justifyContent: "space-between",
         padding: "24px 32px",
         background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
         border: "1px solid #e2e8f0",
@@ -59,7 +58,7 @@ export function DashboardView({
             boxShadow: "0 4px 12px rgba(79,70,229,0.25)",
             flexShrink: 0,
           }}>
-            {profile.full_name.charAt(0).toUpperCase()}
+            {profile.full_name?.charAt(0)?.toUpperCase() || "U"}
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -83,10 +82,10 @@ export function DashboardView({
         </div>
       </div>
 
-      {/* Readiness Score Radar Card */}
+      {/* Readiness Score Radar Card - Spans 100% Full Width */}
       <ReadinessScoreCard milestones={milestones} />
 
-      {/* Stats Cards Row */}
+      {/* Stats Cards Row - Spans 100% Full Width */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 32 }}>
         {stats.map((s, i) => (
           <StatsCard key={i} label={s.label} value={s.value} icon={s.icon} color={s.color} />
@@ -94,8 +93,8 @@ export function DashboardView({
       </div>
 
       {/* Main Grid: 2 Columns */}
-      <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 24 }}>
-        {/* Left Side */}
+      <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 24, marginBottom: 24 }}>
+        {/* Left Side (Wide Column) */}
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           {/* Category Breakdown */}
           <div className="card-dark" style={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 24 }}>
@@ -105,14 +104,16 @@ export function DashboardView({
             <CategoryBreakdown milestones={milestones} />
           </div>
 
-          {/* AI Advisor Banner */}
-          <AdvisorCTA businessName={business.name} role={profile.role} />
+          {/* Team Members Card - Multi-column member grid */}
+          <div className="card-dark" style={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 24 }}>
+            <TeamMembers members={members} />
+          </div>
         </div>
 
         {/* Right Side */}
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           {/* Invite Code */}
-          <InviteBanner inviteCode={business.invite_code} role={profile.role} />
+          <InviteBanner inviteCode={business?.invite_code || "ESTAFET"} role={profile?.role} />
 
           {/* Upcoming Milestones */}
           <div className="card-dark" style={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 24 }}>
@@ -126,15 +127,12 @@ export function DashboardView({
             </div>
             <UpcomingMilestones milestones={milestones} />
           </div>
-
-          {/* Team Members */}
-          <div className="card-dark" style={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 24 }}>
-            <h2 className="heading-sm" style={{ color: "#0f172a", marginBottom: 16, fontSize: 16, fontWeight: 700 }}>
-              Tim Suksesi Bisnis
-            </h2>
-            <TeamMembers members={members} />
-          </div>
         </div>
+      </div>
+
+      {/* Bottom Full-Width Banner: AI Advisor CTA (Spans 100% Full Width across screen) */}
+      <div style={{ width: "100%" }}>
+        <AdvisorCTA businessName={business?.name || "Bisnis Anda"} role={profile?.role} />
       </div>
     </div>
   );

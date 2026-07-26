@@ -1,38 +1,52 @@
 import Link from "next/link";
 import { Brain, ArrowRight } from "@phosphor-icons/react";
 
-export function AdvisorCTA() {
+interface AdvisorCTAProps {
+  businessName?: string;
+  role?: string;
+}
+
+export function AdvisorCTA({ businessName = "Bisnis Anda", role = "pendiri" }: AdvisorCTAProps) {
   return (
     <div style={{
-      background: "linear-gradient(135deg, rgba(73,79,223,0.15) 0%, rgba(73,79,223,0.05) 100%)",
-      border: "1px solid rgba(73,79,223,0.25)",
-      borderRadius: "var(--rounded-lg)",
-      padding: 24,
+      width: "100%",
+      backgroundColor: "#e0e7ff",
+      border: "1px solid #c7d2fe",
+      borderRadius: 16,
+      padding: "28px 36px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexWrap: "wrap",
+      gap: 24,
+      boxShadow: "0 2px 8px rgba(79, 70, 229, 0.08)",
     }}>
-      <div style={{ display: "flex", alignItems: "flex-start", gap: 16, marginBottom: 16 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, maxWidth: 640 }}>
         <div style={{
-          width: 44, height: 44, borderRadius: "var(--rounded-md)",
-          background: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-bright) 100%)",
+          width: 52, height: 52, borderRadius: 14,
+          background: "linear-gradient(135deg, #4f46e5 0%, #6366f1 100%)",
           display: "flex", alignItems: "center", justifyContent: "center",
           flexShrink: 0,
+          boxShadow: "0 4px 12px rgba(79, 70, 229, 0.25)",
         }}>
-          <Brain size={22} color="white" weight="fill" />
+          <Brain size={26} color="white" weight="fill" />
         </div>
         <div>
-          <h3 className="heading-sm" style={{ color: "var(--color-on-dark)", marginBottom: 4 }}>
-            AI Advisor Suksesi
+          <h3 className="heading-sm" style={{ color: "#0f172a", marginBottom: 4, fontSize: 18, fontWeight: 700 }}>
+            AI Advisor Suksesi 24/7 (Google Gemini AI)
           </h3>
-          <p className="body-sm" style={{ color: "var(--color-on-dark-mute)" }}>
-            Dapatkan panduan personal dari AI tentang langkah suksesi yang tepat untuk bisnis Anda.
+          <p className="body-sm" style={{ color: "#334155", fontSize: 14, lineHeight: 1.5 }}>
+            Dapatkan panduan hukum, valuasi finansial, dan strategi pendelegasian operasional untuk <strong>{businessName}</strong> secara instan.
           </p>
         </div>
       </div>
+
       <Link
         href="/advisor"
         className="btn btn-cobalt"
-        style={{ width: "100%", justifyContent: "center", gap: 8 }}
+        style={{ padding: "12px 24px", fontSize: 14, fontWeight: 600, gap: 8, height: 44, flexShrink: 0 }}
       >
-        Konsultasi Sekarang <ArrowRight size={14} />
+        Mulai Konsultasi AI <ArrowRight size={16} weight="bold" />
       </Link>
     </div>
   );

@@ -2,39 +2,48 @@ import { Users } from "@phosphor-icons/react";
 import { Business } from "@/types";
 
 interface InviteBannerProps {
-  business: Business;
+  inviteCode?: string;
+  business?: Business;
+  role?: string;
 }
 
-export function InviteBanner({ business }: InviteBannerProps) {
+export function InviteBanner({ inviteCode, business, role }: InviteBannerProps) {
+  const code = inviteCode || business?.invite_code || "ESTAFET";
+
   return (
     <div style={{
-      marginTop: 24,
-      backgroundColor: "var(--color-surface-elevated)",
-      border: "1px solid var(--color-hairline-dark)",
-      borderRadius: "var(--rounded-lg)",
+      backgroundColor: "#ffffff",
+      border: "1px solid #e2e8f0",
+      borderRadius: 16,
       padding: "20px 24px",
       display: "flex", alignItems: "center",
-      justifyContent: "space-between",
+      justify: "space-between",
       gap: 16, flexWrap: "wrap",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <Users size={20} color="var(--color-stone)" />
+        <div style={{ width: 40, height: 40, borderRadius: 10, backgroundColor: "#e0e7ff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Users size={20} color="#4f46e5" weight="duotone" />
+        </div>
         <div>
-          <div className="body-sm" style={{ color: "var(--color-on-dark)", fontWeight: 500 }}>
-            Undang Penerus ke platform
+          <div className="body-sm" style={{ color: "#0f172a", fontWeight: 600, fontSize: 14 }}>
+            Undang Anggota Tim
           </div>
-          <div style={{ fontSize: 12, color: "var(--color-stone)" }}>
-            Bagikan kode ini kepada anggota keluarga
+          <div style={{ fontSize: 12, color: "#64748b" }}>
+            Bagikan kode ini kepada keluarga
           </div>
         </div>
       </div>
       <span style={{
         fontFamily: "var(--font-display)",
-        fontSize: 22, fontWeight: 700,
-        color: "var(--color-primary-bright)",
-        letterSpacing: 6,
+        fontSize: 20, fontWeight: 800,
+        color: "#4f46e5",
+        backgroundColor: "#f8fafc",
+        padding: "6px 14px",
+        borderRadius: 8,
+        border: "1px dashed #c7d2fe",
+        letterSpacing: 4,
       }}>
-        {business.invite_code}
+        {code}
       </span>
     </div>
   );
