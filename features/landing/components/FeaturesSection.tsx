@@ -125,7 +125,7 @@ export function FeaturesSection() {
             padding: "36px 40px",
             display: "flex",
             alignItems: "center",
-            justify: "space-between",
+            justifyContent: "space-between",
             flexWrap: "wrap",
             gap: 24,
           }}
