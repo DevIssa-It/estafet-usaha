@@ -77,7 +77,20 @@ export function Sidebar({ profile, businessName }: SidebarProps) {
 
       {/* Nav */}
       <nav style={{ flex: 1, display: "flex", flexDirection: "column", gap: 4, paddingTop: 8 }}>
-        {navItems.map(({ href, label, icon: Icon, badge }) => {
+        {navItems
+          .filter(({ href }) => {
+            const role = profile?.role || "pendiri";
+            if (role === "penerus") {
+              // Successor hides financial simulator and notary catalog by default
+              return href !== "/simulator" && href !== "/notaries";
+            }
+            if (role === "notaris") {
+              // Notary hides simulator and milestone creation
+              return href !== "/simulator" && href !== "/milestones";
+            }
+            return true;
+          })
+          .map(({ href, label, icon: Icon, badge }) => {
           const isActive = pathname === href;
           return (
             <Link key={href} href={href}

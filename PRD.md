@@ -13,7 +13,7 @@
 
 **Estafet Usaha** adalah platform digital *All-in-One* terstruktur pertama di Indonesia yang dirancang untuk meningkatkan **Literasi Finansial & Legalitas Suksesi Bisnis Keluarga UMKM**. 
 
-Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis, mengelola pajak pengalihan saham, menyusun kesepakatan *Family Charter*, serta berkonsultasi 24/7 dengan **AI Advisor (Google Gemini)** dalam 4 pilar utama: **Legal**, **Finansial**, **Operasional**, dan **Relasional**.
+Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis, mengelola pajak pengalihan saham, menyusun kesepakatan *Family Charter*, terhubung ke Katalog Notaris Terverifikasi Kemenkumham, serta berkonsultasi 24/7 dengan **AI Advisor (Google Gemini)** dalam 4 pilar utama: **Legal**, **Finansial**, **Operasional**, dan **Relasional**.
 
 ---
 
@@ -57,7 +57,7 @@ Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis
 
 ### 3.3 Readiness Score Radar & Milestone Tracker (`/dashboard` & `/milestones`)
 - **Readiness Score Metrics (0–100%)**: Perhitungan skor kesiapan suksesi secara real-time.
-- **12 Milestone Terstruktur**: Pemetaaan 12 langkah suksesi lintas 4 pilar (Legal, Finansial, Operasional, Relasional).
+- **12 Milestone Terstruktur**: Pemetaan 12 langkah suksesi lintas 4 pilar (Legal, Finansial, Operasional, Relasional).
 
 ### 3.4 Automated Family Charter Generator (`/documents`)
 - **Generator Piagam Keluarga**: Penyusunan Piagam Kesepakatan Tata Kelola & Remunerasi Keluarga siap cetak & tanda tangan secara otomatis.
@@ -66,7 +66,19 @@ Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis
 ### 3.5 Bilik Dokumen / Document Vault (`/vault`)
 - **Vault Terenkripsi**: Tempat penyimpanan terpusat untuk Akta Pendirian, SIUP, NPWP, NIB, dan Sertifikat Merek dengan perlindungan Supabase RLS.
 
-### 3.6 Learning Hub (`/learn`)
+### 3.6 Katalog Notaris Partner Terverifikasi (`/notaries`)
+- **Verified SK Kemenkumham & INI Badges**: Direktori Notaris Partner berlisensi resmi lengkap dengan nomor SK AHU Kemenkumham RI dan NIK Ikatan Notaris Indonesia.
+- **Transparansi Biaya & Ulasan Client**: Menampilkan rating bintang, ulasan terverifikasi dari pemilik bisnis keluarga, dan rincian keahlian akta suksesi.
+- **1-Click Invite Notary**: Fitur salin Kode Undangan bisnis 1-klik untuk menghubungkan Notaris pilihan ke Dewan Suksesi Bisnis.
+
+### 3.7 Dynamic Multi-Role Onboarding & Navigation (`/auth`, `/onboarding`, & Sidebar)
+- **Role-based Onboarding**:
+  - **Pendiri**: Form otomatis pembuatan bisnis keluarga baru.
+  - **Penerus**: Form otomatis gabung via Kode Undangan bisniskeluarga (opsi buat bisnis disembunyikan).
+  - **Notaris Partner**: 2 pilihan onboarding (Daftarkan Profil Katalog Publik atau Gabung Klien via Kode Undangan).
+- **Personalized Navigation**: Navigasi dan fitur dashboard disesuaikan secara dinamis berdasarkan wewenang peran (`pendiri`, `penerus`, `notaris`).
+
+### 3.8 Learning Hub (`/learn`)
 - **Modul Edukasi Suksesi**: Materi pembelajaran interaktif tentang pendelegasian operasional, komunikasi keluarga, dan kepatuhan hukum.
 
 ---
@@ -75,7 +87,7 @@ Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis
 
 ### 💻 Stack Teknologi:
 - **Framework**: Next.js 16.2 (React 19, App Router)
-- **Styling**: Tailwind CSS v4 + Revolut Light Design System
+- **Styling**: Tailwind CSS v4 + Vanilla CSS Design Tokens (`globals.css`)
 - **Database & Auth**: Supabase PostgreSQL dengan Row Level Security (RLS)
 - **AI Integration**: Google Generative AI SDK (`@google/generative-ai`)
 - **Security**: Environment Variables Server-Side (`.env.local`), Tanpa Hardcode API Key
@@ -83,7 +95,7 @@ Platform ini membantu keluarga pengusaha merencanakan, menghitung valuasi bisnis
 ### 🗄️ Supabase Database Schema:
 ```sql
 -- Profiles Table
-profiles (id UUID PRIMARY KEY, full_name TEXT, role TEXT, business_id UUID, created_at TIMESTAMPTZ)
+profiles (id UUID PRIMARY KEY, full_name TEXT, role TEXT CHECK (role IN ('pendiri', 'penerus', 'calon_penerus', 'notaris', 'advisor')), business_id UUID, created_at TIMESTAMPTZ)
 
 -- Businesses Table
 businesses (id UUID PRIMARY KEY, name TEXT, description TEXT, industry TEXT, founded_year INT, owner_id UUID, invite_code TEXT, created_at TIMESTAMPTZ)
@@ -105,9 +117,9 @@ chat_messages (id UUID PRIMARY KEY, business_id UUID, user_id UUID, role TEXT, c
 
 ## 5. Orisinalitas & Logika Keputusan Desain (15% Bobot Penilaian)
 
-1. **Keunikan Pendekatan 4 Pilar**: Solusi pertama yang mengintegrasikan Literasi Finansial, Legalitas Notaris, SOP Operasional, dan Harmonisisasi Relasi Keluarga dalam 1 aplikasi.
-2. **Revolut Light Aesthetic**: Mengadopsi standar desain visual fintech dunia (Light Canvas `#f8fafc`, Obsidian Dark Sidebar `#0d1117`, Cobalt Accent `#4f46e5`, High-contrast Typography) yang disukai pengguna modern.
-3. **Micro-Component Architecture**: Kode terstruktur secara modular dalam folder `features/`, memudahkan pemeliharaan, skala, dan kolaborasi tim.
+1. **Keunikan Pendekatan 4 Pilar & Katalog Notaris**: Solusi pertama yang mengintegrasikan Literasi Finansial, Legalitas Notaris, Katalog Notaris Terverifikasi Kemenkumham, SOP Operasional, dan Harmonisisasi Relasi Keluarga dalam 1 aplikasi.
+2. **Modern Light Design System**: Mengadopsi standar visual fintech dunia (Light Canvas `#f8fafc`, Obsidian Dark Sidebar `#0d1117`, Cobalt Accent `#4f46e5`, High-contrast Typography) yang disukai pengguna modern.
+3. **Micro-Component Architecture**: Kode terstruktur secara modular dalam folder `features/`, dipecah menjadi mikro komponen independen (< 60–80 baris) untuk kemudahan pemeliharaan dan skalabilitas.
 
 ---
 

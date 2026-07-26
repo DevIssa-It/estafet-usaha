@@ -92,3 +92,31 @@ export async function joinBusiness(inviteCode: string) {
   revalidatePath("/dashboard");
   return business;
 }
+
+export async function registerNotaryProfile(data: {
+  sk_number: string;
+  ini_number: string;
+  city: string;
+  office_address: string;
+}) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error("Unauthorized");
+
+  const fullName = user.user_metadata?.full_name || user.email?.split("@")[0] || "Notaris Partner";
+
+  const { error } = await supabase
+    .from("profiles")
+    .upsert({
+      id: user.id,
+      full_name: fullName,
+      role: "notaris",
+    });
+
+  if (error) throw new Error(error.message || "Gagal mendaftarkan profil Notaris");
+
+  revalidatePath("/dashboard");
+  revalidatePath("/notaries");
+  return { success: true };
+}
+
