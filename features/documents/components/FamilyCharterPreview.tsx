@@ -83,13 +83,13 @@ Pihak Penerus: (___________________)`;
             PIAGAM KESEPAKATAN TATA KELOLA KELUARGA & SUKSESI
           </h2>
           <h3 style={{ fontSize: 16, fontWeight: 600, color: "#475569", margin: "4px 0 0" }}>
-            (FAMILY CHARTER - {business.name.toUpperCase()})
+            (FAMILY CHARTER - {(business?.name || "Bisnis").toUpperCase()})
           </h3>
         </div>
 
         {/* Document Content */}
         <p style={{ textIndent: 36, marginBottom: 16 }}>
-          Pada hari ini, tanggal <strong>{new Date(effectiveDate).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" })}</strong>, kami yang bertanda tangan di bawah ini sepakat untuk menyusun dan mengikatkan diri dalam Piagam Suksesi Bisnis Keluarga <strong>{business.name}</strong> ({business.industry}).
+          Pada hari ini, tanggal <strong>{new Date(effectiveDate).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" })}</strong>, kami yang bertanda tangan di bawah ini sepakat untuk menyusun dan mengikatkan diri dalam Piagam Suksesi Bisnis Keluarga <strong>{business?.name || "Bisnis"}</strong> ({business?.industry || "Retail"}).
         </p>
 
         <h4 style={{ fontSize: 15, fontWeight: 700, marginTop: 24, marginBottom: 8 }}>PASAL 1: PERAN DAN TANGGUNG JAWAB</h4>
