@@ -136,7 +136,13 @@ export function Sidebar({ profile, businessName }: SidebarProps) {
               {profile?.full_name || "User"}
             </div>
             <div style={{ fontSize: 11, color: "#8b949e" }}>
-              {profile?.role === "pendiri" ? "Pendiri" : "Penerus"}
+              {
+                profile?.role === "pendiri" ? "Generasi Pendiri" :
+                profile?.role === "notaris" ? "Notaris Partner" :
+                profile?.role === "advisor" ? "External Advisor" :
+                profile?.role === "calon_penerus" ? "Calon Penerus" :
+                "Generasi Penerus"
+              }
             </div>
           </div>
         </div>

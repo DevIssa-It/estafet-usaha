@@ -30,7 +30,7 @@ export function AdvisorHeader({ businessName, role }: AdvisorHeaderProps) {
       <div style={{ marginLeft: "auto" }}>
         <span className="badge-feature" style={{ fontSize: 11 }}>
           <Sparkle size={11} style={{ marginRight: 4 }} weight="fill" />
-          {role === "pendiri" ? "Mode Pendiri" : "Mode Penerus"}
+          {role === "pendiri" ? "Mode Pendiri" : role === "notaris" ? "Mode Notaris Partner" : role === "advisor" ? "Mode Advisor" : "Mode Penerus"}
         </span>
       </div>
     </div>
