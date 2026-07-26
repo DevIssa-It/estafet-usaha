@@ -102,10 +102,10 @@ BEGIN
   -- ── Insert profiles secara eksplisit (jangan andalkan trigger saja) ──
   INSERT INTO public.profiles (id, full_name, role, business_id, created_at)
   VALUES
-    ('a1111111-1111-1111-1111-111111111111', 'Budi Santoso',               'pendiri', NULL, now()),
-    ('b2222222-2222-2222-2222-222222222222', 'Andi Santoso',               'penerus', NULL, now()),
-    ('c4444444-4444-4444-4444-444444444444', 'Citra Santoso',              'penerus', NULL, now()),
-    ('d5555555-5555-5555-5555-555555555555', 'Dewi Rahmawati, S.H., M.Kn.','penerus', NULL, now())
+    ('a1111111-1111-1111-1111-111111111111', 'Budi Santoso',               'pendiri',       NULL, now()),
+    ('b2222222-2222-2222-2222-222222222222', 'Andi Santoso',               'penerus',       NULL, now()),
+    ('c4444444-4444-4444-4444-444444444444', 'Citra Santoso',              'calon_penerus', NULL, now()),
+    ('d5555555-5555-5555-5555-555555555555', 'Dewi Rahmawati, S.H., M.Kn.','notaris',       NULL, now())
   ON CONFLICT (id) DO UPDATE SET
     full_name = excluded.full_name,
     role      = excluded.role;

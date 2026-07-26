@@ -40,17 +40,29 @@ export default async function DashboardPage() {
     .eq("business_id", profile.business_id)
     .order("created_at");
 
-  const { data: members } = await supabase
+  const { data: rawProfiles } = await supabase
     .from("profiles")
     .select("id, full_name, role")
     .eq("business_id", profile.business_id);
+
+  const { data: memberRoles } = await supabase
+    .from("business_members")
+    .select("user_id, role")
+    .eq("business_id", profile.business_id);
+
+  const roleMap = new Map((memberRoles || []).map((r) => [r.user_id, r.role]));
+
+  const members = (rawProfiles || []).map((p) => ({
+    ...p,
+    role: roleMap.get(p.id) || p.role,
+  }));
 
   return (
     <DashboardView
       profile={profile}
       business={business}
       milestones={milestones || []}
-      members={members || []}
+      members={members}
     />
   );
 }
