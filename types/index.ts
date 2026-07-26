@@ -53,10 +53,10 @@ export const CATEGORY_LABELS: Record<MilestoneCategory, string> = {
 };
 
 export const CATEGORY_COLORS: Record<MilestoneCategory, string> = {
-  legal: "#494fdf",
-  financial: "#00a87e",
-  operational: "#ec7e00",
-  relational: "#e61e49",
+  legal: "#4f46e5",
+  financial: "#0284c7",
+  operational: "#6366f1",
+  relational: "#4338ca",
 };
 
 export const STATUS_LABELS: Record<MilestoneStatus, string> = {
