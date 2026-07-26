@@ -17,7 +17,7 @@ export function InviteBanner({ inviteCode, business, role }: InviteBannerProps) 
       borderRadius: 16,
       padding: "20px 24px",
       display: "flex", alignItems: "center",
-      justify: "space-between",
+      justifyContent: "space-between",
       gap: 16, flexWrap: "wrap",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>

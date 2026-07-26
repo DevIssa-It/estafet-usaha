@@ -1,4 +1,4 @@
-export type UserRole = "pendiri" | "penerus";
+export type UserRole = "pendiri" | "penerus" | "calon_penerus" | "notaris" | "advisor";
 
 export interface Profile {
   id: string;

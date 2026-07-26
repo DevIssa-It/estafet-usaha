@@ -40,7 +40,7 @@ export function AdvisorView({ profile, businessName, initialHistory }: AdvisorVi
   const [isLoading, setIsLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const prompts = SUGGESTED_PROMPTS[profile.role] ?? SUGGESTED_PROMPTS.pendiri;
+  const prompts = SUGGESTED_PROMPTS[profile.role as keyof typeof SUGGESTED_PROMPTS] ?? SUGGESTED_PROMPTS.pendiri;
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
