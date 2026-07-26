@@ -25,20 +25,34 @@ export async function getUserProfile(supabase: SupabaseClient, userId: string) {
 
   let bizId = profile?.business_id || ownedBiz?.id;
 
-  // Check if user is member of a business
-  if (!bizId) {
+  // Check if user is member of a business and get exact role in business_members
+  let memberRole: string | null = null;
+  if (bizId) {
+    const { data: memberRecord } = await supabase
+      .from("business_members")
+      .select("role")
+      .eq("business_id", bizId)
+      .eq("user_id", userId)
+      .maybeSingle();
+    if (memberRecord?.role) {
+      memberRole = memberRecord.role;
+    }
+  } else {
     const { data: memberBiz } = await supabase
       .from("business_members")
-      .select("business_id")
+      .select("business_id, role")
       .eq("user_id", userId)
       .order("joined_at", { ascending: false })
       .limit(1)
       .maybeSingle();
-    bizId = memberBiz?.business_id || null;
+    if (memberBiz) {
+      bizId = memberBiz.business_id;
+      memberRole = memberBiz.role;
+    }
   }
 
-  // Determine ideal role: if ownedBiz exists or metadata says pendiri -> 'pendiri', else profile.role or 'penerus'
-  const expectedRole = (ownedBiz || metaRole === "pendiri") ? "pendiri" : (profile?.role || metaRole || "penerus");
+  // Determine ideal role: if ownedBiz exists -> 'pendiri', else memberRole or profile.role or metaRole or 'penerus'
+  const expectedRole = ownedBiz ? "pendiri" : (memberRole || profile?.role || metaRole || "penerus");
 
   // Always ensure profile exists and has up-to-date name, role, and business_id
   if (!profile || (bizId && !profile.business_id) || profile.role !== expectedRole || profile.full_name !== fullName) {
