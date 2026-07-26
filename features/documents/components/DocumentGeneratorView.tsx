@@ -9,9 +9,10 @@ import { FamilyCharterPreview } from "./FamilyCharterPreview";
 interface DocumentGeneratorViewProps {
   profile: Profile;
   business: Business;
+  members?: Array<{ id: string; full_name: string; role: string }>;
 }
 
-export function DocumentGeneratorView({ profile, business }: DocumentGeneratorViewProps) {
+export function DocumentGeneratorView({ profile, business, members = [] }: DocumentGeneratorViewProps) {
   const [successorSalary, setSuccessorSalary] = useState("15.000.000");
   const [retainedProfitPercent, setRetainedProfitPercent] = useState("30");
   const [founderVetoRights, setFounderVetoRights] = useState("ya");
@@ -66,6 +67,7 @@ export function DocumentGeneratorView({ profile, business }: DocumentGeneratorVi
         <FamilyCharterPreview
           profile={profile}
           business={business}
+          members={members}
           successorSalary={successorSalary}
           retainedProfitPercent={retainedProfitPercent}
           founderVetoRights={founderVetoRights}

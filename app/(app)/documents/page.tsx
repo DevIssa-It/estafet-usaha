@@ -14,10 +14,16 @@ export default async function DocumentsPage() {
 
   const { profile, business } = await getProfileAndBusiness(supabase, user.id);
 
+  const { data: members } = await supabase
+    .from("profiles")
+    .select("id, full_name, role")
+    .eq("business_id", profile.business_id);
+
   return (
     <DocumentGeneratorView
       profile={profile}
       business={business}
+      members={members || []}
     />
   );
 }
